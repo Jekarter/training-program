@@ -1,8 +1,15 @@
 import React from 'react'
+import styles from './header.module.scss'
 
-const Header = () => {
+interface HeaderProps {
+  children: React.ReactNode
+}
+
+const Header = ({ children }: HeaderProps) => {
   return (
-    <div>Header</div>
+    <header className={styles.header}>
+      {children}
+    </header>
   )
 }
 

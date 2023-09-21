@@ -1,0 +1,82 @@
+.nav {
+  height: 100%;
+}
+
+.list {
+  list-style: none;
+  width: 100%;
+  height: auto;
+  background-color: #000;
+  text-align: center;
+
+  &Item {
+    &:first-child {
+      border-top: 2px solid #F09522;
+    }
+    border-bottom: 2px solid #F09522;
+  }
+  
+  &Link {
+    display: block;
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+.container {
+  position: relative;
+}
+
+.containerButton {
+  display: none;
+}
+
+@media (max-width: 360px) {
+  .containerButton {
+    display: flex;
+    position: relative;
+    padding: 20px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  .containerShow {
+    display: block;
+  }
+
+  .containerHide {
+    display: none;
+  }
+
+  .buttonMenu {
+    position: absolute;
+    content: "";
+    right: 30px;
+    outline: none;
+    width: 15px;
+    height: 15px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 30%;
+      left: 0px;
+      width: 14px;
+      height: 2px;
+      border-top: 6px double #fff;
+      border-bottom: 2px solid #fff;
+    }
+  }
+}
