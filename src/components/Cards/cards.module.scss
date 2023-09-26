@@ -1,0 +1,16 @@
+.catalog {
+  margin-bottom: 50px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 700px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+}

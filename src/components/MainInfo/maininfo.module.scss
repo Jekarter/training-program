@@ -1,0 +1,104 @@
+.mainImage {
+  max-height: 800px;
+  display: block;
+  object-fit: cover;
+}
+
+.mainInfo {
+  margin-bottom: 0;
+}
+
+.container {
+  position: relative;
+  color: #fff;
+  background-color: #000;
+}
+
+.title {
+  font-family: 'Roboto', 'Aral', sans-serif;
+  font-size: 30px;
+  padding: 20px;
+  color: #FFF;
+  text-align: center;
+
+  &Name {
+    color: #F09522;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    width: 251px;
+    height: 255px;
+    opacity: 0.5;
+    border-radius: 50%;
+    filter: blur(2.5rem);
+    background: #FF5400;
+    z-index: -1;
+  }
+}
+
+.description {
+  font-family: "Roboto", "Arial", sans-serif;
+  padding: 20px;
+  text-align: center;
+  line-height: 24px;
+  z-index: 1;
+  position: relative;
+  width: 320px;
+  margin: 20px auto;
+  top: 40px;
+}
+
+@media (max-width: 500px) {
+  .mainInfo {
+    margin-bottom: 60px;
+  }
+
+  .containerText {
+    top: 58px;
+  }
+
+  .background {
+    background: linear-gradient(to top, #000 73%, transparent 100%, transparent 85%);
+    width: 100%;
+    z-index: 1;
+    height: 35%;
+  }
+
+  .title {
+    position: absolute;
+    bottom: 16%;
+  }
+}
+
+
+@media (min-width: 501px) {
+  .containerText {
+    position: absolute;
+    top: 71px;
+    width: 336px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.46);
+    border-radius: 10px;
+    height: 265px;
+  }
+
+  .description {
+    margin-top: 0;
+    font-family: "Roboto", "Arial", sans-serif;
+    padding: 20px;
+    text-align: center;
+    line-height: 24px;
+    top: 0;
+  }
+
+  .title {
+    &::before {
+      width: 424px;
+      height: 454px;
+      bottom: -110px;
+    }
+  }
+}

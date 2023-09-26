@@ -1,0 +1,20 @@
+.footer {
+  border-top: 1px solid #2f1700;
+  margin-top: 20px;
+}
+
+.container {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+
+
+  & a {
+    margin: 10px;
+  }
+}
+
+.copyrigth {
+  text-align: end;
+  font-size: 12px;
+}

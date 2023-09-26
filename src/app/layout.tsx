@@ -7,6 +7,7 @@ import Header from '@/components/Header/Header'
 import Navigation from '@/components/Navigation/Navigation'
 import Image from 'next/image'
 import logo from '../../public/logo.svg'
+import Footer from '@/components/Footer/Footer'
 
 
 
@@ -27,6 +28,8 @@ export default function RootLayout({
           <Navigation />
         </Header>
         {children}
+        <Footer />
+
       </body>
     </html>
   )

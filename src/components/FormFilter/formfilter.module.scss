@@ -1,8 +1,4 @@
 .filter {
-  background-image: url('../../assets/pattern.png');
-  position: relative;
-  margin-bottom: 40px;
-  padding: 30px 0;
 
   &::before {
     position: absolute;
@@ -138,4 +134,10 @@
   color: #fff;
   cursor: pointer;
   margin: 10px
+}
+
+@media (min-width: 700px) {
+  .filter {
+    width: 350px;
+  }
 }

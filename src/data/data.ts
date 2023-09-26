@@ -1,5 +1,5 @@
 import { Data } from "@/types/types";
-import dsd from '../../public/cards/тяга-гантели-из-за-головы-лежа-PULL-OVER.jpg'
+
 export const cards:Data = [
   {
     id: 1,
