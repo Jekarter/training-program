@@ -1,0 +1,48 @@
+.title {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.mainImageContainer {
+  position: relative;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+.videoContainer {
+  text-align: center;
+}
+
+.textContainer {
+  padding: 20px;
+  font-size: 1.1rem;
+}
+
+.listActions {
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+
+.description {
+  margin-top: 10px;
+}
+
+.imageContainer {
+  text-align: center;
+}
+
+.backButton {
+  background-image: url('../../assets/arrow-back.svg');
+  background-repeat: no-repeat;
+  background-color: rgba(208, 208, 215, 0.4);
+  color: #fff;
+  border: none;
+  padding: 10px 10px 10px 35px;
+  background-position: 8px;
+  margin-left: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}

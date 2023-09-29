@@ -1,10 +1,11 @@
-import Image from 'next/image'
-import styles from './page.module.scss'
+import MainInfo from '@/components/MainInfo/MainInfo';
+import Catalog from '@/components/Catalog/Catalog';
 
 export default function Home() {
   return (
     <main>
-      Home
+      <MainInfo />
+      <Catalog />
     </main>
-  )
+  );
 }
