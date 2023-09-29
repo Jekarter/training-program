@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const HowToUse = () => {
-  return (
-    <div>HowToUse</div>
-  )
-}
+  return <div>HowToUse</div>;
+};
 
-export default HowToUse
+export default HowToUse;

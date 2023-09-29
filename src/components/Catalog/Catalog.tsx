@@ -1,7 +1,7 @@
-import React from 'react'
-import FormFilter from '../FormFilter/FormFilter'
-import styles from './catalog.module.scss'
-import Cards from '../Cards/Cards'
+import React from 'react';
+import FormFilter from '../FormFilter/FormFilter';
+import styles from './catalog.module.scss';
+import Cards from '../Cards/Cards';
 
 const Catalog = () => {
   return (
@@ -9,7 +9,7 @@ const Catalog = () => {
       <FormFilter />
       <Cards />
     </section>
-  )
-}
+  );
+};
 
-export default Catalog
+export default Catalog;
