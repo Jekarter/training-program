@@ -2,10 +2,10 @@ import React from 'react'
 import styles from './card.module.scss'
 import Image from 'next/image'
 import { cards } from '@/data/data'
-import { cardObject } from '@/types/types'
+import { miniCards } from '@/types/types'
 
 
-const Card = ({id, img, title, description}: cardObject) => {
+const Card = ({id, img, title, description}: miniCards) => {
 
   const shortDescription = (str: string): string => {
     return str.substring(0, 80) + '...'
@@ -18,7 +18,6 @@ const Card = ({id, img, title, description}: cardObject) => {
         </div>
         <div className={styles.infoCard}>
           <h3 className={styles.title}>{title}</h3>
-          {/* <p className={styles.description}>{shortDescription(description)}</p> */}
         </div>
         <div className={styles.buttonContainer}>
           <button>Добавить в мою программу</button>

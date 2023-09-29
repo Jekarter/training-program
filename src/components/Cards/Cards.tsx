@@ -10,7 +10,7 @@ const Cards = () => {
       <div>
         <ul className={styles.list}>
           {cards.map(card => (
-            <Link href={`/`} key={card.id}>
+            <Link href={`../../exercise/${card.id}`} key={card.id}>
               <Card 
                 id={card.id} 
                 img={card.img} 
