@@ -1,40 +1,41 @@
 .filter {
-
   &::before {
+    content: '';
+
     position: absolute;
-    content: "";
+    right: 0;
+
     width: 251px;
     height: 314px;
+
     opacity: 0.5;
-    border-radius: 50%;
+    background: #ff5400;
     filter: blur(5.5rem);
-    background: #FF5400;
-    right: -64px;
+    border-radius: 50%;
   }
 }
 
 .title {
+  margin-bottom: 20px;
   color: #fff;
   text-align: center;
-  margin-bottom: 20px;
 
   &Filter {
-    padding: 20px;
     margin-bottom: 10px;
+    padding: 20px;
     font-size: 1.2rem;
-    
   }
 }
 
 .group {
-  border: none;
-  padding: 0;
   margin-bottom: 20px;
+  padding: 0;
+  border: none;
 }
 
 .list {
-  list-style: none;
   padding: 0;
+  list-style: none;
 }
 
 .listItem {
@@ -42,45 +43,53 @@
 }
 
 .listItem label {
-  display: block;
-  margin-bottom: 12px;
   cursor: pointer;
+
   position: relative;
-  padding-left: 50px;
+
+  display: block;
+
+  margin-bottom: 12px;
   padding-top: 5px;
   padding-bottom: 5px;
-  font-size: 17px
+  padding-left: 50px;
+
+  font-size: 17px;
 }
 
 .listItem .radioLabel {
   &::before {
     bottom: 5px;
     left: 17px;
-    height: 20px;
+
     width: 20px;
+    height: 20px;
+
     background-color: #c9c9c9;
   }
 
   &::after {
     bottom: 8px;
     left: 20px;
-    height: 14px;
+
     width: 14px;
-    background-color: #F09522;
+    height: 14px;
+
+    background-color: #f09522;
   }
 }
 
 .listItem input:checked + .radioLabel::after,
 .listItem input + .radioLabel::before {
+  content: '';
   position: absolute;
-  content: "";
   border-radius: 50%;
 }
 
 .listItem .labelCheckbox::before,
 .listItem .labelCheckbox::after {
+  content: '';
   position: absolute;
-  content: "";
   transition: opacity 0.25s ease;
 }
 
@@ -88,34 +97,34 @@
   &::before {
     top: 7px;
     left: 19px;
-    height: 22px;
+
     width: 22px;
+    height: 22px;
+
     background-color: #eee;
     border-radius: 3px;
   }
 
   &::after {
-    left: 26px;
     top: 10px;
+    left: 26px;
+    transform: rotate(45deg);
+
     width: 5px;
     height: 10px;
+
+    opacity: 0;
     border: solid #333;
     border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    opacity: 0;
   }
 }
 
 .listItem input:checked + .labelCheckbox::before {
-  background-color: #F09522;
+  background-color: #f09522;
 }
 
 .listItem input:checked + .labelCheckbox::after {
   opacity: 1;
-}
-
-.listItem:hover input:checked + .labelCheckbox::active {
-  background-color: #F09522;
 }
 
 .buttonContainer {
@@ -123,20 +132,23 @@
 }
 
 .buttonContainer button {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  padding: 10px;
+  cursor: pointer;
+
   width: 300px;
+  margin: 10px;
+  padding: 10px;
+
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
+  color: #fff;
+  text-transform: uppercase;
+
   background: linear-gradient(0.5turn, #604b3f, #8e4b01);
   border: none;
   border-radius: 8px;
-  font-size: 15px;
-  text-transform: uppercase;
-  color: #fff;
-  cursor: pointer;
-  margin: 10px
 }
 
-@media (min-width: 700px) {
+@media (width >= 700px) {
   .filter {
     width: 350px;
   }
