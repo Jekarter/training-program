@@ -3,10 +3,30 @@ import React from 'react';
 import styles from './formfilter.module.scss';
 
 const FormFilter = () => {
+  const handleSubmit = (event: React.FormEvent<HTMLButtonElement>): void => {
+    event.preventDefault();
+    console.log(event);
+    const myForm = event.target as HTMLFormElement;
+    const formData = new FormData(myForm);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData.toString()).toString(),
+    })
+      .then(() => alert('Thank you for your submission'))
+      .catch((error) => alert(error));
+  };
+
   return (
     <div className={styles.filter}>
       <h2 className={styles.title}>Фильтр упражнений</h2>
-      <form className={styles.filterForm}>
+      <form
+        name="form-filter"
+        className={styles.filterForm}
+        method="POST"
+        data-netlify="true"
+      >
         <div className={styles.filterContainer}>
           <fieldset className={styles.group}>
             <legend className={styles.titleFilter}>
@@ -124,8 +144,11 @@ const FormFilter = () => {
           </fieldset>
         </div>
         <div className={styles.buttonContainer}>
-          <button type="submit">Подтвердить</button>
-          <button type="reset">Сбросить фильтр</button>
+          <input type="hidden" name="form-name" value="form-filter" />
+          <input type="submit" value="Подтвердить" />
+          <button type="submit" onSubmit={(event) => handleSubmit(event)}>
+            Подтвердить
+          </button>
         </div>
       </form>
     </div>
