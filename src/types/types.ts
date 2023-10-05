@@ -3,9 +3,9 @@ export type Data = cardObject[];
 export type cardObject = {
   id: number;
   title: string;
+  thumbnailImg: string;
   img: string;
   description: string;
-  subtitle: string;
   actionList: EnumList;
   imgSecond: string;
   descriptionSecond: string;
@@ -17,7 +17,7 @@ export type cardObject = {
 
 export type miniCards = Omit<
   cardObject,
-  | 'subtitle'
+  | 'img'
   | 'actionList'
   | 'imgSecond'
   | 'descriptionSecond'

@@ -8,8 +8,13 @@
 .mainImageContainer {
   position: relative;
   width: 100%;
-  height: auto;
   object-fit: contain;
+  text-align: center;
+}
+
+.mainImage {
+  max-height: 600px;
+  max-width: fit-content;
 }
 
 .videoContainer {

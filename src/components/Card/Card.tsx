@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { cards } from '@/data/data';
 import { miniCards } from '@/types/types';
 
-const Card = ({ id, img, title, description }: miniCards) => {
+const Card = ({ id, thumbnailImg, title, description }: miniCards) => {
   const shortDescription = (str: string): string => {
     return str.substring(0, 80) + '...';
   };
@@ -12,7 +12,12 @@ const Card = ({ id, img, title, description }: miniCards) => {
     <>
       <li className={styles.listItem}>
         <div className={styles.imageContainer}>
-          <Image className={styles.img} src={img} alt={title} fill={true} />
+          <Image
+            className={styles.img}
+            src={thumbnailImg}
+            alt={title}
+            fill={true}
+          />
         </div>
         <div className={styles.infoCard}>
           <h3 className={styles.title}>{title}</h3>

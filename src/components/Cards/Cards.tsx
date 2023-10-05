@@ -13,7 +13,7 @@ const Cards = () => {
             <Link href={`../../exercise/${card.id}`} key={card.id}>
               <Card
                 id={card.id}
-                img={card.img}
+                thumbnailImg={card.thumbnailImg}
                 title={card.title}
                 description={card.description}
               />
