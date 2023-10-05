@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import styles from './exercisecontainer.module.scss';
 import Link from 'next/link';
+import { CloudinaryImage } from '@cloudinary/url-gen';
 
 const ExerciseContainer = ({ ...props }: cardObject) => {
   return (
@@ -15,10 +16,11 @@ const ExerciseContainer = ({ ...props }: cardObject) => {
       <h1 className={styles.title}>{props.title}</h1>
       <div className={styles.mainImageContainer}>
         <Image
+          className={styles.mainImage}
           src={props.img}
           alt={props.title}
-          width={300}
-          height={300}
+          width={600}
+          height={600}
           layout="responsive"
         />
       </div>
@@ -27,16 +29,18 @@ const ExerciseContainer = ({ ...props }: cardObject) => {
         <p className={styles.description}>{props.description}</p>
       </div>
       <div className={styles.textContainer}>
-        <h3>{props.subtitle}</h3>
+        <h3>Выполнение упражнения</h3>
         <ol className={styles.listActions}>
-          {props.actionList?.map((item) => <li key={item}>{item}</li>)}
+          {props.actionList.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ol>
       </div>
       <div className={styles.textContainer}>
         <div className={styles.imageContainer}>
           <Image
             src={props.imgSecond}
-            alt={props.subtitle}
+            alt={props.title}
             width={300}
             height={300}
           />

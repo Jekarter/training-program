@@ -7,9 +7,23 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier-format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,json}' --config ./.prettierrc"
+    "prettier-format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,json}' --config ./.prettierrc",
+    "stylelint": "stylelint '**/*{.css,.scss}'",
+    "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,js,jsx,tsx}": [
+      "eslint --ignore-path .gitignore",
+      "prettier --ignore-path .gitignore --write"
+    ],
+    "**/*.scss": [
+      "stylelint"
+    ]
   },
   "dependencies": {
+    "@cloudinary/react": "^1.11.2",
+    "@cloudinary/url-gen": "^1.11.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.10",
@@ -19,13 +33,20 @@
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",
+    "next-cloudinary": "^4.22.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.2.2"
   },
   "devDependencies": {
     "classnames": "^2.3.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
-    "sass": "^1.67.0"
+    "sass": "^1.67.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-clean-order": "^5.2.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^11.0.0"
   }
 }

@@ -31,17 +31,17 @@ const Navigation = () => {
       >
         <ul className={styles.list}>
           <li className={styles.listItem}>
-            <Link className={styles.listLink} href="./">
+            <Link className={styles.listLink} href="/">
               Главная
             </Link>
           </li>
           <li className={styles.listItem}>
-            <Link className={styles.listLink} href="./about">
+            <Link className={styles.listLink} href="/about">
               О Конструкторе
             </Link>
           </li>
           <li className={styles.listItem}>
-            <Link className={styles.listLink} href="./how-to-use">
+            <Link className={styles.listLink} href="/how-to-use">
               Как пользоваться
             </Link>
           </li>

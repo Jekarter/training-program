@@ -1,15 +1,15 @@
 import './globals.scss';
-
 import type { Metadata } from 'next';
-
 import Header from '@/components/Header/Header';
 import Navigation from '@/components/Navigation/Navigation';
-
 import Footer from '@/components/Footer/Footer';
 
 export const metadata: Metadata = {
-  title: 'Моя программа тренировок',
-  description: 'Конструктор программы тренировок',
+  title: 'Программа Тренировок',
+  description: 'Конструктор Программы Тренировок',
+  viewport: 'width=device-width, initial-scale=1',
+  keywords: ['тренировка', 'конструктор', 'программа', 'упражнение'],
+  creator: 'Jekarter',
 };
 
 export default function RootLayout({

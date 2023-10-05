@@ -1,6 +1,6 @@
 .mainImage {
-  max-height: 800px;
   display: block;
+  max-height: 800px;
   object-fit: cover;
 }
 
@@ -15,43 +15,49 @@
 }
 
 .title {
-  font-family: 'Roboto', 'Aral', sans-serif;
-  font-size: 30px;
   padding: 20px;
+
+  font-family: Roboto, Aral, sans-serif;
+  font-size: 30px;
   color: #FFF;
   text-align: center;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+
+    width: 251px;
+    height: 255px;
+
+    opacity: 0.5;
+    background: #FF5400;
+    filter: blur(2.5rem);
+    border-radius: 50%;
+  }
 
   &Name {
     color: #F09522;
   }
-
-  &::before {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    width: 251px;
-    height: 255px;
-    opacity: 0.5;
-    border-radius: 50%;
-    filter: blur(2.5rem);
-    background: #FF5400;
-    z-index: -1;
-  }
 }
 
 .description {
-  font-family: "Roboto", "Arial", sans-serif;
-  padding: 20px;
-  text-align: center;
-  line-height: 24px;
-  z-index: 1;
   position: relative;
+  z-index: 1;
+  top: 40px;
+
   width: 320px;
   margin: 20px auto;
-  top: 40px;
+  padding: 20px;
+
+  font-family: Roboto, Arial, sans-serif;
+  line-height: 24px;
+  text-align: center;
 }
 
-@media (max-width: 500px) {
+@media (width <= 500px) {
   .mainInfo {
     margin-bottom: 60px;
   }
@@ -61,10 +67,10 @@
   }
 
   .background {
-    background: linear-gradient(to top, #000 73%, transparent 100%, transparent 85%);
-    width: 100%;
     z-index: 1;
+    width: 100%;
     height: 35%;
+    background: linear-gradient(to top, #000 73%, transparent 100%, transparent 85%);
   }
 
   .title {
@@ -74,31 +80,35 @@
 }
 
 
-@media (min-width: 501px) {
+@media (width >= 501px) {
   .containerText {
     position: absolute;
-    top: 71px;
-    width: 336px;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.46);
-    border-radius: 10px;
+    top: 71px;
+
+    width: 336px;
     height: 265px;
+
+    background-color: rgb(0 0 0 / 46%);
+    border-radius: 10px;
   }
 
   .description {
-    margin-top: 0;
-    font-family: "Roboto", "Arial", sans-serif;
-    padding: 20px;
-    text-align: center;
-    line-height: 24px;
     top: 0;
+
+    margin-top: 0;
+    padding: 20px;
+
+    font-family: Roboto, Arial, sans-serif;
+    line-height: 24px;
+    text-align: center;
   }
 
   .title {
     &::before {
+      bottom: -110px;
       width: 424px;
       height: 454px;
-      bottom: -110px;
     }
   }
 }
