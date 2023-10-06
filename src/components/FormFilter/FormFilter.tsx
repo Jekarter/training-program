@@ -1,21 +1,14 @@
 'use client';
 import React from 'react';
 import styles from './formfilter.module.scss';
+import { useAppDispatch } from '@/hooks/hooks';
+import { checkboxFilter } from '@/store/reducers/ExerciseSlice';
 
 const FormFilter = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLButtonElement>): void => {
-    event.preventDefault();
-    console.log(event);
-    const myForm = event.target as HTMLFormElement;
-    const formData = new FormData(myForm);
+  const dispatch = useAppDispatch();
 
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData.toString()).toString(),
-    })
-      .then(() => alert('Thank you for your submission'))
-      .catch((error) => alert(error));
+  const getCurrentCheckboxes = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(checkboxFilter(event.target.value));
   };
 
   return (
@@ -64,6 +57,7 @@ const FormFilter = () => {
                   type="radio"
                   name="place"
                   value="all"
+                  defaultChecked
                 ></input>
                 <label className={styles.radioLabel} htmlFor="all">
                   Посмотреть все
@@ -80,6 +74,7 @@ const FormFilter = () => {
                   id="pectoral"
                   type="checkbox"
                   value="pectoral"
+                  onChange={(event) => getCurrentCheckboxes(event)}
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="pectoral">
                   Грудные
@@ -91,6 +86,7 @@ const FormFilter = () => {
                   id="spinal"
                   type="checkbox"
                   value="spinal"
+                  onChange={(event) => getCurrentCheckboxes(event)}
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="spinal">
                   Спинные
@@ -102,6 +98,7 @@ const FormFilter = () => {
                   id="shoulder"
                   type="checkbox"
                   value="shoulder"
+                  onChange={(event) => getCurrentCheckboxes(event)}
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="shoulder">
                   Плечевые
@@ -113,6 +110,7 @@ const FormFilter = () => {
                   id="leg"
                   type="checkbox"
                   value="leg"
+                  onChange={(event) => getCurrentCheckboxes(event)}
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="leg">
                   Мышцы ног
@@ -124,6 +122,7 @@ const FormFilter = () => {
                   id="arm"
                   type="checkbox"
                   value="arm"
+                  onChange={(event) => getCurrentCheckboxes(event)}
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="arm">
                   Мышцы рук
@@ -135,6 +134,7 @@ const FormFilter = () => {
                   id="abdominal"
                   type="checkbox"
                   value="abdominal"
+                  onChange={(event) => getCurrentCheckboxes(event)}
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="abdominal">
                   Мышцы живота
@@ -144,11 +144,8 @@ const FormFilter = () => {
           </fieldset>
         </div>
         <div className={styles.buttonContainer}>
-          <input type="hidden" name="form-name" value="form-filter" />
-          <input type="submit" value="Подтвердить" />
-          <button type="submit" onSubmit={(event) => handleSubmit(event)}>
-            Подтвердить
-          </button>
+          <button>Подтвердить</button>
+          <button type="reset">Сбросить фильтр</button>
         </div>
       </form>
     </div>
