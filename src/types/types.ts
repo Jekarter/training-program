@@ -1,4 +1,4 @@
-export type Data = cardObject[];
+export type ExerciseCards = cardObject[];
 
 export type cardObject = {
   id: number;
@@ -6,13 +6,13 @@ export type cardObject = {
   thumbnailImg: string;
   img: string;
   description: string;
-  actionList: EnumList;
+  actionList: ActionsList;
   imgSecond: string;
   descriptionSecond: string;
-  whoUseIt: EnumList;
+  whoUseIt: ActionsList;
   videoUrl: string;
-  place?: Place;
-  group?: Group;
+  group: Group;
+  place: Place;
 };
 
 export type miniCards = Omit<
@@ -23,9 +23,18 @@ export type miniCards = Omit<
   | 'descriptionSecond'
   | 'whoUseIt'
   | 'videoUrl'
+  | 'group'
+  | 'place'
 >;
 
-type EnumList = string[];
+type ActionsList = string[];
 
-type Place = 'street' | 'gym';
-type Group = 'pectoral' | 'spinal' | 'shoulder' | 'leg' | 'arm' | 'abdominal';
+export type Place = 'street' | 'gym' | 'all';
+export type FilterPlace = 'street' | 'gym' | 'all';
+export type Group =
+  | 'pectoral'
+  | 'spinal'
+  | 'shoulder'
+  | 'leg'
+  | 'arm'
+  | 'abdominal';
