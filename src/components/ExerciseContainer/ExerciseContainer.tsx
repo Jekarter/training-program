@@ -19,9 +19,8 @@ const ExerciseContainer = ({ ...props }: cardObject) => {
           className={styles.mainImage}
           src={props.img}
           alt={props.title}
-          width={600}
-          height={600}
-          layout="responsive"
+          fill={true}
+          sizes="100vw"
         />
       </div>
       <div className={styles.textContainer}>
@@ -38,12 +37,14 @@ const ExerciseContainer = ({ ...props }: cardObject) => {
       </div>
       <div className={styles.textContainer}>
         <div className={styles.imageContainer}>
-          <Image
-            src={props.imgSecond}
-            alt={props.title}
-            width={300}
-            height={300}
-          />
+          {props.imgSecond ?? (
+            <Image
+              src={props.imgSecond}
+              alt={props.title}
+              width={300}
+              height={300}
+            />
+          )}
         </div>
         <p className={styles.description}>{props.descriptionSecond}</p>
       </div>

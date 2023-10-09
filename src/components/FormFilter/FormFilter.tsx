@@ -8,6 +8,7 @@ import {
   radioFilter,
 } from '@/store/reducers/ExerciseSlice';
 import { Place } from '@/types/types';
+import Button from '../Button/Button';
 
 const FormFilter = () => {
   const dispatch = useAppDispatch();
@@ -197,10 +198,12 @@ const FormFilter = () => {
           </fieldset>
         </div>
         <div className={styles.buttonContainer}>
-          <button onClick={() => saveFilterResults()}>Подтвердить</button>
-          <button type="reset" onClick={() => clearFilterResults()}>
-            Сбросить фильтр
-          </button>
+          <Button text="Подтвердить" onClick={() => saveFilterResults()} />
+          <Button
+            text="Сбросить фильтр"
+            type="reset"
+            onClick={() => clearFilterResults()}
+          />
         </div>
       </form>
     </div>

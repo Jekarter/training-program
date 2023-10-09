@@ -4,6 +4,7 @@ import Header from '@/components/Header/Header';
 import Navigation from '@/components/Navigation/Navigation';
 import Footer from '@/components/Footer/Footer';
 import { ReduxProvider } from '@/store/provider';
+import Account from '@/components/Account/Account';
 
 export const metadata: Metadata = {
   title: 'Программа Тренировок',
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body>
         <Header>
           <Navigation />
+          <Account />
         </Header>
         <ReduxProvider>{children}</ReduxProvider>
         <Footer />
