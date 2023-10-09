@@ -1,11 +1,11 @@
-import { Data } from '@/types/types';
+import { ExerciseCards } from '@/types/types';
 
 const THUMBNAIL_IMG_SIZE = 'c_thumb,w_315';
 const MAIN_IMG_QUALITY = 'q_auto:eco';
 const SECOND_IMAGE = 'f_auto,q_auto';
 const SIZE_YOUTUBE_VIDEO = `width="80%" height="400px" align="middle"`;
 
-export const cards: Data = [
+export const cards: ExerciseCards = [
   {
     id: 1,
     thumbnailImg: `https://res.cloudinary.com/dwpvwn978/image/upload/${THUMBNAIL_IMG_SIZE}/id1/lazfg13yfuyal6woedco.jpg`,
@@ -165,7 +165,7 @@ export const cards: Data = [
     ],
     videoUrl: `<iframe ${SIZE_YOUTUBE_VIDEO} src="https://www.youtube.com/embed/MBNHRJRLLzQ?si=GvA6n-pcFw4gaqBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
     place: 'street',
-    group: 'spinal',
+    group: 'pectoral',
   },
 ];
 

@@ -1,8 +1,9 @@
-import { cardObject } from '@/types/types';
+import { FilterPlace, Place, cardObject } from '@/types/types';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface FilterState {
+  place: FilterPlace;
   pectoral: boolean;
   spinal: boolean;
   shoulder: boolean;
@@ -12,6 +13,7 @@ export interface FilterState {
 }
 
 const initialState: FilterState = {
+  place: 'all',
   pectoral: false,
   spinal: false,
   shoulder: false,
@@ -24,31 +26,21 @@ export const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    checkboxFilter: (state, action: PayloadAction<string>) => {
-      switch (action.payload) {
-        case 'pectoral':
-          state.pectoral = !state.pectoral;
-        case 'spinal':
-          state.spinal = !state.spinal;
-        case 'shoulder':
-          state.shoulder = !state.shoulder;
-        case 'leg':
-          state.leg = !state.leg;
-        case 'arm':
-          state.arm = !state.arm;
-        case 'abdominal':
-          state.abdominal = !state.abdominal;
-
-          break;
-
-        default:
-          break;
-      }
+    checkboxFilter: (state, action: PayloadAction<FilterState>) => {
+      state.pectoral = action.payload.pectoral;
+      state.spinal = action.payload.spinal;
+      state.shoulder = action.payload.shoulder;
+      state.leg = action.payload.leg;
+      state.arm = action.payload.arm;
+      state.abdominal = action.payload.abdominal;
+    },
+    radioFilter: (state, action: PayloadAction<FilterState>) => {
+      state.place = action.payload.place;
     },
   },
 });
 
-export const { checkboxFilter } = filterSlice.actions;
+export const { checkboxFilter, radioFilter } = filterSlice.actions;
 export default filterSlice.reducer;
 
 /* 
