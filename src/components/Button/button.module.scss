@@ -1,0 +1,25 @@
+.buttonContainer {
+  position: relative;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+
+  text-align: center;
+}
+
+.buttonContainer button {
+  cursor: pointer;
+
+  width: 240px;
+  margin: 10px;
+  padding: 10px;
+
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
+  color: #fff;
+  text-transform: uppercase;
+
+  background: linear-gradient(0.5turn, #604b3f, #8e4b01);
+  border: none;
+  border-radius: 8px;
+}

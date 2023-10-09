@@ -1,6 +1,7 @@
 .mainImage {
   display: block;
-  max-height: 800px;
+  max-width: 100%;
+  max-height: 700px;
   object-fit: cover;
 }
 
@@ -19,11 +20,11 @@
 
   font-family: Roboto, Aral, sans-serif;
   font-size: 30px;
-  color: #FFF;
+  color: #fff;
   text-align: center;
 
   &::before {
-    content: "";
+    content: '';
 
     position: absolute;
     z-index: -1;
@@ -33,13 +34,13 @@
     height: 255px;
 
     opacity: 0.5;
-    background: #FF5400;
+    background: #ff5400;
     filter: blur(2.5rem);
     border-radius: 50%;
   }
 
   &Name {
-    color: #F09522;
+    color: #f09522;
   }
 }
 
@@ -70,7 +71,12 @@
     z-index: 1;
     width: 100%;
     height: 35%;
-    background: linear-gradient(to top, #000 73%, transparent 100%, transparent 85%);
+    background: linear-gradient(
+      to top,
+      #000 73%,
+      transparent 100%,
+      transparent 85%
+    );
   }
 
   .title {
@@ -78,7 +84,6 @@
     bottom: 16%;
   }
 }
-
 
 @media (width >= 501px) {
   .containerText {

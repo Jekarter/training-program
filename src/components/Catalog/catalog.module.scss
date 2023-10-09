@@ -1,6 +1,5 @@
 .catalog {
   position: relative;
-  margin-bottom: 40px;
   padding: 30px 0;
   background-image: url('../../assets/pattern.png');
 }
@@ -8,5 +7,5 @@
 @media (width >= 700px) {
   .catalog {
     display: flex;
-  }  
+  }
 }

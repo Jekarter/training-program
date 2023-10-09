@@ -1,0 +1,16 @@
+.svgAccount {
+  position: absolute;
+  top: 30px;
+  right: 73px;
+  bottom: 0;
+
+  width: 24px;
+
+  fill: white;
+}
+
+@media (width >= 410px) {
+  .svgAccount {
+    right: 20px;
+  }
+}

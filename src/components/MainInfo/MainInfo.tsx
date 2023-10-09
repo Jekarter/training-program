@@ -12,9 +12,7 @@ const MainInfo = () => {
           className={cl(styles.mainImage, styles.background)}
           src={mainImage}
           alt=""
-          width={300}
-          height={300}
-          layout="responsive"
+          sizes="100vw"
         />
         <div className={styles.containerText}>
           <h2 className={cl(styles.title, styles.background)}>
