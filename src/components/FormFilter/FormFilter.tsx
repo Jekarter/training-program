@@ -22,7 +22,8 @@ const FormFilter = () => {
     abdominal: false,
   });
 
-  const saveFilterResults = () => {
+  const saveFilterResults = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     dispatch(checkboxFilter(selectedFilters));
     dispatch(radioFilter(selectedFilters));
   };
@@ -198,7 +199,10 @@ const FormFilter = () => {
           </fieldset>
         </div>
         <div className={styles.buttonContainer}>
-          <Button text="Подтвердить" onClick={() => saveFilterResults()} />
+          <Button
+            text="Подтвердить"
+            onClick={(event) => saveFilterResults(event)}
+          />
           <Button
             text="Сбросить фильтр"
             type="reset"
