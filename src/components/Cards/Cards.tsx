@@ -37,7 +37,7 @@ const Cards = () => {
   return (
     <div className={styles.catalog}>
       <ul className={styles.list}>
-        {getFilterResultsRadio(cards).map((filterCard: cardObject) => (
+        {cards.map((filterCard: cardObject) => (
           <li key={filterCard.id}>
             <Link href={`../../exercise/${filterCard.id}`}>
               <Card
