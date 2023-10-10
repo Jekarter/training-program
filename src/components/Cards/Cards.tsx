@@ -35,20 +35,18 @@ const Cards = () => {
 
   return (
     <div className={styles.catalog}>
-      <div>
-        <ul className={styles.list}>
-          {getFilterResultsRadio(cards).map((filterCard: cardObject) => (
-            <Link href={`../../exercise/${filterCard.id}`} key={filterCard.id}>
-              <Card
-                id={filterCard.id}
-                thumbnailImg={filterCard.thumbnailImg}
-                title={filterCard.title}
-                description={filterCard.description}
-              />
-            </Link>
-          ))}
-        </ul>
-      </div>
+      <ul className={styles.list}>
+        {getFilterResultsRadio(cards).map((filterCard: cardObject) => (
+          <Link href={`../../exercise/${filterCard.id}`} key={filterCard.id}>
+            <Card
+              id={filterCard.id}
+              thumbnailImg={filterCard.thumbnailImg}
+              title={filterCard.title}
+              description={filterCard.description}
+            />
+          </Link>
+        ))}
+      </ul>
     </div>
   );
 };

@@ -37,13 +37,15 @@ const ExerciseContainer = ({ ...props }: cardObject) => {
       </div>
       <div className={styles.textContainer}>
         <div className={styles.imageContainer}>
-          {props.imgSecond ?? (
+          {props.imgSecond ? (
             <Image
               src={props.imgSecond}
               alt={props.title}
               width={300}
               height={300}
             />
+          ) : (
+            <div>{props.title}</div>
           )}
         </div>
         <p className={styles.description}>{props.descriptionSecond}</p>

@@ -9,13 +9,6 @@ type Inputs = {
   name: string;
   secondName: string;
   age: number;
-  gender: Gender;
-};
-
-type Gender = {
-  male: 'male';
-  female: 'female';
-  other: 'other';
 };
 
 const MyProfile = () => {
@@ -45,12 +38,6 @@ const MyProfile = () => {
           placeholder="Фамилия"
           {...register('secondName')}
         />
-
-        <select {...register('gender')}>
-          <option value="male">Мужской</option>
-          <option value="female">Женский</option>
-          <option value="other">Другой</option>
-        </select>
 
         <input
           className={styles.field}
