@@ -6,6 +6,7 @@ import Card from '../Card/Card';
 import Link from 'next/link';
 import { ExerciseCards, Group, cardObject } from '@/types/types';
 import { useAppSelector } from '@/hooks/hooks';
+import Button from '../Button/Button';
 
 const Cards = () => {
   const filters = useAppSelector((state) => state.exercises);
@@ -37,14 +38,17 @@ const Cards = () => {
     <div className={styles.catalog}>
       <ul className={styles.list}>
         {getFilterResultsRadio(cards).map((filterCard: cardObject) => (
-          <Link href={`../../exercise/${filterCard.id}`} key={filterCard.id}>
-            <Card
-              id={filterCard.id}
-              thumbnailImg={filterCard.thumbnailImg}
-              title={filterCard.title}
-              description={filterCard.description}
-            />
-          </Link>
+          <li key={filterCard.id}>
+            <Link href={`../../exercise/${filterCard.id}`}>
+              <Card
+                id={filterCard.id}
+                thumbnailImg={filterCard.thumbnailImg}
+                title={filterCard.title}
+                description={filterCard.description}
+              />
+            </Link>
+            <Button text={'Добавить в мою программу'} />
+          </li>
         ))}
       </ul>
     </div>

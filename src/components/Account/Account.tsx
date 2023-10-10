@@ -5,8 +5,8 @@ import styles from './account.module.scss';
 const Account = () => {
   return (
     <div className={styles.svgAccount}>
-      <Link href={'/profile'}>
-        <div>
+      <div>
+        <Link href={'/profile'}>
           <svg
             className={styles.svgProfile}
             width="24"
@@ -19,8 +19,8 @@ const Account = () => {
               <path d="M27,29H5V28a9,9,0,0,1,9-9h4a9,9,0,0,1,9,9ZM7.07,27H24.93A7,7,0,0,0,18,21H14A7,7,0,0,0,7.07,27Z" />
             </g>
           </svg>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 };
