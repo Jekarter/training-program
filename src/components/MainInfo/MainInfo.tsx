@@ -16,8 +16,7 @@ const MainInfo = () => {
         />
         <div className={styles.containerText}>
           <h2 className={cl(styles.title, styles.background)}>
-            Создай тело своей мечты{' '}
-            <span className={styles.titleName}>с Trainify</span>
+            Создай тело своей мечты с Trainify
           </h2>
           <p className={styles.description}>
             Наш сервис поможет вам создать персонализированную тренировочную
