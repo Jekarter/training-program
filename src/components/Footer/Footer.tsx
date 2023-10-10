@@ -7,7 +7,7 @@ import classNames from 'classnames';
 const Footer = () => {
   return (
     <footer className={classNames(styles.footer, 'container')}>
-      <div className={styles.container}>
+      {/*  <div className={styles.container}>
         <Link href="https://t.me/je_kart" target="_blank">
           <Image src="/telegram.svg" alt="" width={20} height={20} />
         </Link>
@@ -15,7 +15,7 @@ const Footer = () => {
           <Image src="/gmail.svg" alt="" width={20} height={20} />
         </Link>
       </div>
-      <div className={styles.copyrigth}>© Jekarter</div>
+      <div className={styles.copyrigth}>© Jekarter</div> */}
     </footer>
   );
 };
