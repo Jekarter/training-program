@@ -12,7 +12,7 @@ const Card = ({ id, thumbnailImg, title, description }: miniCards) => {
           src={thumbnailImg}
           alt={title}
           fill={true}
-          sizes="100%"
+          sizes="100vw"
         />
       </div>
       <div className={styles.infoCard}>
