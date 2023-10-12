@@ -5,14 +5,14 @@ import { miniCards } from '@/types/types';
 
 const Card = ({ id, thumbnailImg, title, description }: miniCards) => {
   return (
-    <div className={styles.listItem}>
+    <div>
       <div className={styles.imageContainer}>
         <Image
           className={styles.img}
           src={thumbnailImg}
           alt={title}
-          fill={true}
-          sizes="100vw"
+          width={315}
+          height={300}
         />
       </div>
       <div className={styles.infoCard}>

@@ -7,8 +7,7 @@ const Account = () => {
     <div className={styles.svgAccount}>
       <div>
         <Link href={'/profile'}>
-          Profile
-          {/*           <svg
+          <svg
             className={styles.svgProfile}
             width="24"
             height="24"
@@ -19,7 +18,7 @@ const Account = () => {
               <path d="M16,17a7,7,0,1,1,7-7A7,7,0,0,1,16,17ZM16,5a5,5,0,1,0,5,5A5,5,0,0,0,16,5Z" />
               <path d="M27,29H5V28a9,9,0,0,1,9-9h4a9,9,0,0,1,9,9ZM7.07,27H24.93A7,7,0,0,0,18,21H14A7,7,0,0,0,7.07,27Z" />
             </g>
-          </svg> */}
+          </svg>
         </Link>
       </div>
     </div>

@@ -19,11 +19,25 @@ const MyProfile = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data.toString());
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data.toString()),
+    });
+  };
   return (
     <div className={classNames(styles.formContainer, 'containerMain')}>
       <h1 className={styles.title}>Личный кабинет</h1>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(onSubmit)}
+        name="profile"
+        data-netlify="true"
+        method="POST"
+      >
         <input
           className={styles.field}
           placeholder="*Имя"
