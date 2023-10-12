@@ -38,7 +38,7 @@ const Cards = () => {
     <div className={styles.catalog}>
       <ul className={styles.list}>
         {getFilterResultsRadio(cards).map((filterCard: cardObject) => (
-          <li key={filterCard.id}>
+          <li className={styles.listItem} key={filterCard.id}>
             <Link href={`../../exercise/${filterCard.id}`}>
               <Card
                 id={filterCard.id}
@@ -47,7 +47,10 @@ const Cards = () => {
                 description={filterCard.description}
               />
             </Link>
-            <Button text={'Добавить в мою программу'} />
+            <Button
+              className={styles.button}
+              text={'Добавить в мою программу'}
+            />
           </li>
         ))}
       </ul>
