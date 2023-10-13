@@ -20,13 +20,15 @@ const MyProfile = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data.toString());
+    console.log(JSON.stringify(data));
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data.toString()),
-    });
+      body: new URLSearchParams(JSON.stringify(data)),
+    })
+      .then(() => console.log('Form successfully submitted'))
+      .catch((error) => alert(error));
   };
   return (
     <div className={classNames(styles.formContainer, 'containerMain')}>
