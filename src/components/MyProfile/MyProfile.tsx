@@ -21,14 +21,6 @@ const MyProfile = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(JSON.stringify(data));
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(JSON.stringify(data)),
-    })
-      .then(() => console.log('Form successfully submitted'))
-      .catch((error) => alert(error));
   };
   return (
     <div className={classNames(styles.formContainer, 'containerMain')}>
@@ -40,6 +32,8 @@ const MyProfile = () => {
         data-netlify="true"
         method="POST"
       >
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="profile" value="my profile" />
         <input
           className={styles.field}
           placeholder="*Имя"
