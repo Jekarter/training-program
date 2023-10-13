@@ -19,15 +19,30 @@ const MyProfile = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(JSON.stringify(data));
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const myForm = event.currentTarget;
+    const formData: FormData = new FormData(myForm);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData,
+    })
+      .then(() => console.log('Form successfully submitted'))
+      .catch((error) => alert(error));
   };
+
+  /*  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(JSON.stringify(data));
+  }; */
   return (
     <div className={classNames(styles.formContainer, 'containerMain')}>
       <h1 className={styles.title}>Личный кабинет</h1>
       <form
         className={styles.form}
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={(event) => onSubmit(event)}
         name="profile"
         data-netlify="true"
         method="POST"
