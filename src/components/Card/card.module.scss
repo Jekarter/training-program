@@ -9,8 +9,8 @@
 }
 
 .infoCard {
-  padding: 15px;
   min-height: 90px;
+  padding: 15px;
 }
 
 .description {
@@ -41,18 +41,4 @@
   background: linear-gradient(0.5turn, #604b3f, #8e4b01);
   border: none;
   border-radius: 8px;
-}
-
-@media (width <= 360px) {
-  .img {
-    width: 100%;
-    height: auto;
-    padding-bottom: 10px;
-  }
-
-  .imageContainer {
-    position: relative;
-    height: 250px;
-    object-fit: contain;
-  }
 }

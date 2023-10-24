@@ -1,19 +1,13 @@
-import Image from 'next/image';
 import styles from './maininfo.module.scss';
-import mainImage from '../../assets/main-image.jpg';
 import cl from 'classnames';
+import MainSwiper from '../MainSwiper/MainSwiper';
 
 const MainInfo = () => {
   return (
     <div className={styles.mainInfo}>
       <h1 className="visually-hidden">Конструктор программы тренировок</h1>
       <div className={styles.container}>
-        <Image
-          className={cl(styles.mainImage, styles.background)}
-          src={mainImage}
-          alt=""
-          sizes="100vw"
-        />
+        <MainSwiper />
         <div className={styles.containerText}>
           <h2 className={cl(styles.title, styles.background)}>
             Создай тело своей мечты с Trainify

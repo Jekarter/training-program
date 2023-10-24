@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { miniCards } from '@/types/types';
 
 const Card = ({ id, thumbnailImg, title, description }: miniCards) => {
+  const idString = id.toString();
   return (
-    <div>
+    <div id={idString}>
       <div className={styles.imageContainer}>
         <Image
           className={styles.img}
