@@ -41,8 +41,8 @@ const Navigation = () => {
             </Link>
           </li>
           <li className={styles.listItem}>
-            <Link className={styles.listLink} href="/how-to-use">
-              Как пользоваться
+            <Link className={styles.listLink} href="/faq">
+              FAQ
             </Link>
           </li>
         </ul>
