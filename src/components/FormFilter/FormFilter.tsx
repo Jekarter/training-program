@@ -37,6 +37,7 @@ const FormFilter = () => {
     };
     setSelectedFilters(updatedFilters);
   };
+  console.log(selectedFilters);
 
   const getCurrentFiltersRadio = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -58,9 +59,9 @@ const FormFilter = () => {
       arm: false,
       abdominal: false,
     };
-    setSelectedFilters(clearFilters);
     dispatch(checkboxFilter(clearFilters));
     dispatch(radioFilter(clearFilters));
+    setSelectedFilters(clearFilters);
   };
 
   return (
