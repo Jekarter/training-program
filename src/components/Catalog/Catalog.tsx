@@ -6,7 +6,7 @@ import Cards from '../Cards/Cards';
 const Catalog = () => {
   return (
     <section className={styles.catalog}>
-      {/* <FormFilter /> */}
+      <FormFilter />
       <Cards />
     </section>
   );
