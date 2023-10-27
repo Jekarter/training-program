@@ -83,14 +83,9 @@ const FormFilter = () => {
   return (
     <div className={styles.filter}>
       <h2 className={styles.title}>Фильтр упражнений</h2>
-      <form
-        name="form-filter"
-        className={cl(styles.filterForm, styles.filterContainer)}
-        method="POST"
-        data-netlify="true"
-      >
+      <form name="form-filter" className={styles.filterForm} method="POST">
         <div className={styles.filterContainer}>
-          {/* <fieldset className={styles.group}>
+          <fieldset className={styles.group}>
             <legend className={styles.titleFilter}>
               Где будет проходить тренировка:
             </legend>
@@ -114,7 +109,7 @@ const FormFilter = () => {
                 </li>
               ))}
             </ul>
-          </fieldset> */}
+          </fieldset>
           <fieldset className={styles.group}>
             <legend className={styles.titleFilter}>Мышцы по группам:</legend>
             <ul className={styles.list}>
