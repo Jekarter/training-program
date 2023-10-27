@@ -89,7 +89,7 @@ const FormFilter = () => {
         data-netlify="true"
       >
         <div className={styles.filterContainer}>
-          <fieldset className={styles.group}>
+          {/* <fieldset className={styles.group}>
             <legend className={styles.titleFilter}>
               Где будет проходить тренировка:
             </legend>
@@ -113,8 +113,8 @@ const FormFilter = () => {
                 </li>
               ))}
             </ul>
-          </fieldset>
-          <fieldset className={styles.group}>
+          </fieldset> */}
+          {/*      <fieldset className={styles.group}>
             <legend className={styles.titleFilter}>Мышцы по группам:</legend>
             <ul className={styles.list}>
               {checkboxButtons.map((checkboxButton) => (
@@ -135,7 +135,7 @@ const FormFilter = () => {
                 </li>
               ))}
             </ul>
-          </fieldset>
+          </fieldset> */}
         </div>
         <div className={styles.buttonContainer}>
           <Button
