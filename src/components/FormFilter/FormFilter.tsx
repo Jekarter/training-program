@@ -83,62 +83,61 @@ const FormFilter = () => {
   return (
     <div className={styles.filter}>
       <h2 className={styles.title}>Фильтр упражнений</h2>
-      {/* <form
+      <form
         name="form-filter"
         className={cl(styles.filterForm, styles.filterContainer)}
         method="POST"
         data-netlify="true"
       >
+        <fieldset className={styles.group}>
+          <legend className={styles.titleFilter}>
+            Где будет проходить тренировка:
+          </legend>
+          <ul className={styles.list}>
+            {radioButtons.map((radioButton) => (
+              <li className={styles.listItem} key={radioButton.id}>
+                <input
+                  className="visually-hidden"
+                  id={radioButton.place}
+                  type="radio"
+                  name="place"
+                  value={radioButton.place}
+                  onChange={(event) => getCurrentFiltersRadio(event)}
+                ></input>
+                <label
+                  className={styles.radioLabel}
+                  htmlFor={radioButton.place}
+                >
+                  {radioButton.text}
+                </label>
+              </li>
+            ))}
+          </ul>
+        </fieldset>
+        <fieldset className={styles.group}>
+          <legend className={styles.titleFilter}>Мышцы по группам:</legend>
+          <ul className={styles.list}>
+            {checkboxButtons.map((checkboxButton) => (
+              <li className={styles.listItem} key={checkboxButton.id}>
+                <input
+                  className="visually-hidden"
+                  id={checkboxButton.muscleGroup}
+                  type="checkbox"
+                  value={checkboxButton.muscleGroup}
+                  onChange={(event) => getCurrentFiltersCheckboxes(event)}
+                ></input>
+                <label
+                  className={styles.labelCheckbox}
+                  htmlFor={checkboxButton.muscleGroup}
+                >
+                  {checkboxButton.text}
+                </label>
+              </li>
+            ))}
+          </ul>
+        </fieldset>
 
-          <fieldset className={styles.group}>
-            <legend className={styles.titleFilter}>
-              Где будет проходить тренировка:
-            </legend>
-            <ul className={styles.list}>
-              {radioButtons.map((radioButton) => (
-                <li className={styles.listItem} key={radioButton.id}>
-                  <input
-                    className="visually-hidden"
-                    id={radioButton.place}
-                    type="radio"
-                    name="place"
-                    value={radioButton.place}
-                    onChange={(event) => getCurrentFiltersRadio(event)}
-                  ></input>
-                  <label
-                    className={styles.radioLabel}
-                    htmlFor={radioButton.place}
-                  >
-                    {radioButton.text}
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </fieldset>
-          <fieldset className={styles.group}>
-            <legend className={styles.titleFilter}>Мышцы по группам:</legend>
-            <ul className={styles.list}>
-              {checkboxButtons.map((checkboxButton) => (
-                <li className={styles.listItem} key={checkboxButton.id}>
-                  <input
-                    className="visually-hidden"
-                    id={checkboxButton.muscleGroup}
-                    type="checkbox"
-                    value={checkboxButton.muscleGroup}
-                    onChange={(event) => getCurrentFiltersCheckboxes(event)}
-                  ></input>
-                  <label
-                    className={styles.labelCheckbox}
-                    htmlFor={checkboxButton.muscleGroup}
-                  >
-                    {checkboxButton.text}
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </fieldset>
-      
-        <div className={styles.buttonContainer}>
+        {/*         <div className={styles.buttonContainer}>
           <Button
             text="Подтвердить"
             onClick={(event) => saveFilterResults(event)}
@@ -148,8 +147,8 @@ const FormFilter = () => {
             type="reset"
             onClick={() => clearFilterResults()}
           />
-        </div>
-      </form> */}
+        </div> */}
+      </form>
     </div>
   );
 };
