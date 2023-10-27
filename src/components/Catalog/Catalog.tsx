@@ -7,7 +7,7 @@ const Catalog = () => {
   return (
     <section className={styles.catalog}>
       <FormFilter />
-      <Cards />
+      {/* <Cards /> */}
     </section>
   );
 };
