@@ -10,8 +10,23 @@ import {
 import { Place } from '@/types/types';
 import Button from '../Button/Button';
 
+const radioButtons = [
+  { id: 1, place: 'street', text: 'На улице/дома' },
+  { id: 2, place: 'gym', text: 'Тренажерный зал' },
+  { id: 3, place: 'all', text: 'Показать все' },
+];
+
+const checkboxButtons = [
+  { id: 1, muscleGroup: 'pectoral', text: 'Грудные' },
+  { id: 2, muscleGroup: 'spinal', text: 'Спинные' },
+  { id: 3, muscleGroup: 'shoulder', text: 'Плечевые' },
+  { id: 4, muscleGroup: 'leg', text: 'Мышцы ног' },
+  { id: 5, muscleGroup: 'arm', text: 'Мышцы рук' },
+  { id: 6, muscleGroup: 'abdominal', text: 'Мышцы живота' },
+];
+
 const FormFilter = () => {
-  /*  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const [selectedFilters, setSelectedFilters] = useState<FilterState>({
     place: 'all',
     pectoral: false,
@@ -62,7 +77,7 @@ const FormFilter = () => {
     dispatch(checkboxFilter(initialFilter));
     dispatch(radioFilter(initialFilter));
     setSelectedFilters(initialFilter);
-  }; */
+  };
 
   return (
     <div className={styles.filter}>
@@ -79,135 +94,58 @@ const FormFilter = () => {
               Где будет проходить тренировка:
             </legend>
             <ul className={styles.list}>
-              <li className={styles.listItem}>
-                <input
-                  className="visually-hidden"
-                  id="street"
-                  type="radio"
-                  name="place"
-                  value="street"
-                  /* onChange={(event) => getCurrentFiltersRadio(event)} */
-                ></input>
-                <label className={styles.radioLabel} htmlFor="street">
-                  На улице/дома
-                </label>
-              </li>
-              <li className={styles.listItem}>
-                <input
-                  className="visually-hidden"
-                  id="gym"
-                  type="radio"
-                  name="place"
-                  value="gym"
-                  /* onChange={(event) => getCurrentFiltersRadio(event)} */
-                ></input>
-                <label className={styles.radioLabel} htmlFor="gym">
-                  Тренажерный зал
-                </label>
-              </li>
-              <li className={styles.listItem}>
-                <input
-                  className="visually-hidden"
-                  id="all"
-                  type="radio"
-                  name="place"
-                  value="all"
-                  defaultChecked
-                  /* onChange={(event) => getCurrentFiltersRadio(event)} */
-                ></input>
-                <label className={styles.radioLabel} htmlFor="all">
-                  Посмотреть все
-                </label>
-              </li>
+              {radioButtons.map((radioButton) => (
+                <li className={styles.listItem} key={radioButton.id}>
+                  <input
+                    className="visually-hidden"
+                    id={radioButton.place}
+                    type="radio"
+                    name="place"
+                    value={radioButton.place}
+                    onChange={(event) => getCurrentFiltersRadio(event)}
+                  ></input>
+                  <label
+                    className={styles.radioLabel}
+                    htmlFor={radioButton.place}
+                  >
+                    {radioButton.text}
+                  </label>
+                </li>
+              ))}
             </ul>
           </fieldset>
           <fieldset className={styles.group}>
             <legend className={styles.titleFilter}>Мышцы по группам:</legend>
             <ul className={styles.list}>
-              <li className={styles.listItem}>
-                <input
-                  className="visually-hidden"
-                  id="pectoral"
-                  type="checkbox"
-                  value="pectoral"
-                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
-                ></input>
-                <label className={styles.labelCheckbox} htmlFor="pectoral">
-                  Грудные
-                </label>
-              </li>
-              <li className={styles.listItem}>
-                <input
-                  className="visually-hidden"
-                  id="spinal"
-                  type="checkbox"
-                  value="spinal"
-                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
-                ></input>
-                <label className={styles.labelCheckbox} htmlFor="spinal">
-                  Спинные
-                </label>
-              </li>
-              <li className={styles.listItem}>
-                <input
-                  className="visually-hidden"
-                  id="shoulder"
-                  type="checkbox"
-                  value="shoulder"
-                  /*  onChange={(event) => getCurrentFiltersCheckboxes(event)} */
-                ></input>
-                <label className={styles.labelCheckbox} htmlFor="shoulder">
-                  Плечевые
-                </label>
-              </li>
-              <li className={styles.listItem}>
-                <input
-                  className="visually-hidden"
-                  id="leg"
-                  type="checkbox"
-                  value="leg"
-                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
-                ></input>
-                <label className={styles.labelCheckbox} htmlFor="leg">
-                  Мышцы ног
-                </label>
-              </li>
-              <li className={styles.listItem}>
-                <input
-                  className="visually-hidden"
-                  id="arm"
-                  type="checkbox"
-                  value="arm"
-                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
-                ></input>
-                <label className={styles.labelCheckbox} htmlFor="arm">
-                  Мышцы рук
-                </label>
-              </li>
-              <li className={styles.listItem}>
-                <input
-                  className="visually-hidden"
-                  id="abdominal"
-                  type="checkbox"
-                  value="abdominal"
-                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
-                ></input>
-                <label className={styles.labelCheckbox} htmlFor="abdominal">
-                  Мышцы живота
-                </label>
-              </li>
+              {checkboxButtons.map((checkboxButton) => (
+                <li className={styles.listItem} key={checkboxButton.id}>
+                  <input
+                    className="visually-hidden"
+                    id={checkboxButton.muscleGroup}
+                    type="checkbox"
+                    value={checkboxButton.muscleGroup}
+                    onChange={(event) => getCurrentFiltersCheckboxes(event)}
+                  ></input>
+                  <label
+                    className={styles.labelCheckbox}
+                    htmlFor={checkboxButton.muscleGroup}
+                  >
+                    {checkboxButton.text}
+                  </label>
+                </li>
+              ))}
             </ul>
           </fieldset>
         </div>
         <div className={styles.buttonContainer}>
           <Button
             text="Подтвердить"
-            /* onClick={(event) => saveFilterResults(event)} */
+            onClick={(event) => saveFilterResults(event)}
           />
           <Button
             text="Сбросить фильтр"
             type="reset"
-            /*  onClick={() => clearFilterResults()} */
+            onClick={() => clearFilterResults()}
           />
         </div>
       </form>
