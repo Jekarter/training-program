@@ -6,8 +6,8 @@ import Cards from '../Cards/Cards';
 const Catalog = () => {
   return (
     <section className={styles.catalog}>
-      <FormFilter />
-      {/* <Cards /> */}
+      {/* <FormFilter /> */}
+      <Cards />
     </section>
   );
 };
