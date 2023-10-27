@@ -9,6 +9,7 @@ import {
 } from '@/store/reducers/ExerciseSlice';
 import { Place } from '@/types/types';
 import Button from '../Button/Button';
+import cl from 'classnames';
 
 const radioButtons = [
   { id: 1, place: 'street', text: 'На улице/дома' },
@@ -84,16 +85,15 @@ const FormFilter = () => {
       <h2 className={styles.title}>Фильтр упражнений</h2>
       <form
         name="form-filter"
-        className={styles.filterForm}
+        className={cl(styles.filterForm, styles.filterContainer)}
         method="POST"
         data-netlify="true"
       >
-        <div className={styles.filterContainer}>
-          <fieldset className={styles.group}>
-            <legend className={styles.titleFilter}>
-              Где будет проходить тренировка:
-            </legend>
-            {/* <ul className={styles.list}>
+        <fieldset className={styles.group}>
+          <legend className={styles.titleFilter}>
+            Где будет проходить тренировка:
+          </legend>
+          {/* <ul className={styles.list}>
               {radioButtons.map((radioButton) => (
                 <li className={styles.listItem} key={radioButton.id}>
                   <input
@@ -113,10 +113,10 @@ const FormFilter = () => {
                 </li>
               ))}
             </ul> */}
-          </fieldset>
-          <fieldset className={styles.group}>
-            <legend className={styles.titleFilter}>Мышцы по группам:</legend>
-            {/*  <ul className={styles.list}>
+        </fieldset>
+        <fieldset className={styles.group}>
+          <legend className={styles.titleFilter}>Мышцы по группам:</legend>
+          {/*  <ul className={styles.list}>
               {checkboxButtons.map((checkboxButton) => (
                 <li className={styles.listItem} key={checkboxButton.id}>
                   <input
@@ -135,8 +135,8 @@ const FormFilter = () => {
                 </li>
               ))}
             </ul> */}
-          </fieldset>
-        </div>
+        </fieldset>
+
         <div className={styles.buttonContainer}>
           <Button
             text="Подтвердить"
