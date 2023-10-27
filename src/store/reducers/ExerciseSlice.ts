@@ -42,24 +42,3 @@ export const filterSlice = createSlice({
 
 export const { checkboxFilter, radioFilter } = filterSlice.actions;
 export default filterSlice.reducer;
-
-/* 
-interface exerciseState {
-  exercises: cardObject[];
-}
-
-const initialState: exerciseState = {
-  exercises: [],
-};
-
-export const exercisesSlice = createSlice({
-  name: 'exercises',
-  initialState,
-  reducers: {
-    radioFilter: (state, action: PayloadAction<cardObject>) => {},
-  },
-});
-
-export default exercisesSlice.reducer;
-
-*/
