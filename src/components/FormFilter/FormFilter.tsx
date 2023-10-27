@@ -11,7 +11,7 @@ import { Place } from '@/types/types';
 import Button from '../Button/Button';
 
 const FormFilter = () => {
-  const dispatch = useAppDispatch();
+  /*  const dispatch = useAppDispatch();
   const [selectedFilters, setSelectedFilters] = useState<FilterState>({
     place: 'all',
     pectoral: false,
@@ -50,7 +50,7 @@ const FormFilter = () => {
   };
 
   const clearFilterResults = () => {
-    const clearFilters: FilterState = {
+    const initialFilter: FilterState = {
       place: 'all',
       pectoral: false,
       spinal: false,
@@ -59,10 +59,10 @@ const FormFilter = () => {
       arm: false,
       abdominal: false,
     };
-    dispatch(checkboxFilter(clearFilters));
-    dispatch(radioFilter(clearFilters));
-    setSelectedFilters(clearFilters);
-  };
+    dispatch(checkboxFilter(initialFilter));
+    dispatch(radioFilter(initialFilter));
+    setSelectedFilters(initialFilter);
+  }; */
 
   return (
     <div className={styles.filter}>
@@ -86,7 +86,7 @@ const FormFilter = () => {
                   type="radio"
                   name="place"
                   value="street"
-                  onChange={(event) => getCurrentFiltersRadio(event)}
+                  /* onChange={(event) => getCurrentFiltersRadio(event)} */
                 ></input>
                 <label className={styles.radioLabel} htmlFor="street">
                   На улице/дома
@@ -99,7 +99,7 @@ const FormFilter = () => {
                   type="radio"
                   name="place"
                   value="gym"
-                  onChange={(event) => getCurrentFiltersRadio(event)}
+                  /* onChange={(event) => getCurrentFiltersRadio(event)} */
                 ></input>
                 <label className={styles.radioLabel} htmlFor="gym">
                   Тренажерный зал
@@ -113,7 +113,7 @@ const FormFilter = () => {
                   name="place"
                   value="all"
                   defaultChecked
-                  onChange={(event) => getCurrentFiltersRadio(event)}
+                  /* onChange={(event) => getCurrentFiltersRadio(event)} */
                 ></input>
                 <label className={styles.radioLabel} htmlFor="all">
                   Посмотреть все
@@ -130,7 +130,7 @@ const FormFilter = () => {
                   id="pectoral"
                   type="checkbox"
                   value="pectoral"
-                  onChange={(event) => getCurrentFiltersCheckboxes(event)}
+                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="pectoral">
                   Грудные
@@ -142,7 +142,7 @@ const FormFilter = () => {
                   id="spinal"
                   type="checkbox"
                   value="spinal"
-                  onChange={(event) => getCurrentFiltersCheckboxes(event)}
+                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="spinal">
                   Спинные
@@ -154,7 +154,7 @@ const FormFilter = () => {
                   id="shoulder"
                   type="checkbox"
                   value="shoulder"
-                  onChange={(event) => getCurrentFiltersCheckboxes(event)}
+                  /*  onChange={(event) => getCurrentFiltersCheckboxes(event)} */
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="shoulder">
                   Плечевые
@@ -166,7 +166,7 @@ const FormFilter = () => {
                   id="leg"
                   type="checkbox"
                   value="leg"
-                  onChange={(event) => getCurrentFiltersCheckboxes(event)}
+                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="leg">
                   Мышцы ног
@@ -178,7 +178,7 @@ const FormFilter = () => {
                   id="arm"
                   type="checkbox"
                   value="arm"
-                  onChange={(event) => getCurrentFiltersCheckboxes(event)}
+                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="arm">
                   Мышцы рук
@@ -190,7 +190,7 @@ const FormFilter = () => {
                   id="abdominal"
                   type="checkbox"
                   value="abdominal"
-                  onChange={(event) => getCurrentFiltersCheckboxes(event)}
+                  /* onChange={(event) => getCurrentFiltersCheckboxes(event)} */
                 ></input>
                 <label className={styles.labelCheckbox} htmlFor="abdominal">
                   Мышцы живота
@@ -202,12 +202,12 @@ const FormFilter = () => {
         <div className={styles.buttonContainer}>
           <Button
             text="Подтвердить"
-            onClick={(event) => saveFilterResults(event)}
+            /* onClick={(event) => saveFilterResults(event)} */
           />
           <Button
             text="Сбросить фильтр"
             type="reset"
-            onClick={() => clearFilterResults()}
+            /*  onClick={() => clearFilterResults()} */
           />
         </div>
       </form>
