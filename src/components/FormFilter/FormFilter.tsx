@@ -83,17 +83,18 @@ const FormFilter = () => {
   return (
     <div className={styles.filter}>
       <h2 className={styles.title}>Фильтр упражнений</h2>
-      <form
+      {/* <form
         name="form-filter"
         className={cl(styles.filterForm, styles.filterContainer)}
         method="POST"
         data-netlify="true"
       >
-        <fieldset className={styles.group}>
-          <legend className={styles.titleFilter}>
-            Где будет проходить тренировка:
-          </legend>
-          {/* <ul className={styles.list}>
+
+          <fieldset className={styles.group}>
+            <legend className={styles.titleFilter}>
+              Где будет проходить тренировка:
+            </legend>
+            <ul className={styles.list}>
               {radioButtons.map((radioButton) => (
                 <li className={styles.listItem} key={radioButton.id}>
                   <input
@@ -112,11 +113,11 @@ const FormFilter = () => {
                   </label>
                 </li>
               ))}
-            </ul> */}
-        </fieldset>
-        <fieldset className={styles.group}>
-          <legend className={styles.titleFilter}>Мышцы по группам:</legend>
-          {/*  <ul className={styles.list}>
+            </ul>
+          </fieldset>
+          <fieldset className={styles.group}>
+            <legend className={styles.titleFilter}>Мышцы по группам:</legend>
+            <ul className={styles.list}>
               {checkboxButtons.map((checkboxButton) => (
                 <li className={styles.listItem} key={checkboxButton.id}>
                   <input
@@ -134,9 +135,9 @@ const FormFilter = () => {
                   </label>
                 </li>
               ))}
-            </ul> */}
-        </fieldset>
-
+            </ul>
+          </fieldset>
+      
         <div className={styles.buttonContainer}>
           <Button
             text="Подтвердить"
@@ -148,7 +149,7 @@ const FormFilter = () => {
             onClick={() => clearFilterResults()}
           />
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };
