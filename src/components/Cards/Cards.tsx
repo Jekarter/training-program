@@ -1,37 +1,30 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './cards.module.scss';
 import { cards } from '@/data/data';
 import Card from '../Card/Card';
 import Link from 'next/link';
-import { ExerciseCards, Group, cardObject } from '@/types/types';
+import { ExerciseCards, cardObject } from '@/types/types';
 import { useAppSelector } from '@/hooks/hooks';
 import Button from '../Button/Button';
 
 const Cards = () => {
-  const filters = useAppSelector((state) => state.exercises);
+  const checkedFilters = useAppSelector((state) => state.exercises);
+  console.log('filters', checkedFilters);
 
   const getFilterResultsRadio = (cards: ExerciseCards) => {
-    if (filters.place === 'all') {
-      if (Object.values(filters).includes(true)) {
-        return cards.filter(
-          (filteredCheckbox) => filters[filteredCheckbox.group],
-        );
-      }
-      return cards;
-    }
-    if (filters.place === 'gym' || 'street') {
-      if (Object.values(filters).includes(true)) {
-        return cards
-          .filter((filteredCard) => filteredCard.place == filters.place)
-          .filter((filteredCheckbox) => filters[filteredCheckbox.group]);
-      }
-      return cards.filter(
-        (filteredCard) => filteredCard.place == filters.place,
-      );
-    }
+    const filteredPlace =
+      checkedFilters.place === 'all'
+        ? cards
+        : cards.filter(
+            (filteredCard) => filteredCard.place == checkedFilters.place,
+          );
 
-    return [];
+    return checkedFilters.muscleGroups[0]
+      ? filteredPlace.filter((filteredMuscleGroup) =>
+          checkedFilters.muscleGroups.includes(filteredMuscleGroup.group),
+        )
+      : filteredPlace;
   };
 
   return (
@@ -59,3 +52,35 @@ const Cards = () => {
 };
 
 export default Cards;
+
+/* 
+
+  const filters = useAppSelector((state) => state.exercises);
+  console.log('filters', filters);
+  const place = {
+    all: () => {},
+  };
+
+  const getFilterResultsRadio = (cards: ExerciseCards) => {
+    console.log('otrabotala');
+    if (filters.place === 'all') {
+      if (Object.values(filters).includes(true)) {
+        return cards.filter(
+          (filteredCheckbox) => filters[filteredCheckbox.group],
+        );
+      }
+      return cards;
+    }
+    if (filters.place === 'gym' || 'street') {
+      if (Object.values(filters).includes(true)) {
+        return cards
+          .filter((filteredCard) => filteredCard.place == filters.place)
+          .filter((filteredCheckbox) => filters[filteredCheckbox.group]);
+      }
+      return cards.filter(
+        (filteredCard) => filteredCard.place == filters.place,
+      );
+    }
+
+    return [];
+  };*/

@@ -5,7 +5,6 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
   justify-content: center;
 
   padding: 0;
@@ -28,5 +27,11 @@
   .list {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+@media (width >= 1000px) {
+  .list {
+    justify-content: flex-start;
   }
 }

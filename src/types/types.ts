@@ -30,7 +30,6 @@ export type miniCards = Omit<
 type ActionsList = string[];
 
 export type Place = 'street' | 'gym' | 'all';
-export type FilterPlace = 'street' | 'gym' | 'all';
 export type Group =
   | 'pectoral'
   | 'spinal'
