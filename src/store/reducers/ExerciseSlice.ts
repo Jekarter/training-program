@@ -1,25 +1,15 @@
-import { FilterPlace, Place, cardObject } from '@/types/types';
+import { Group, Place, cardObject } from '@/types/types';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface FilterState {
-  place: FilterPlace;
-  pectoral: boolean;
-  spinal: boolean;
-  shoulder: boolean;
-  leg: boolean;
-  arm: boolean;
-  abdominal: boolean;
+  place: Place;
+  muscleGroups: Group[];
 }
 
 const initialState: FilterState = {
   place: 'all',
-  pectoral: false,
-  spinal: false,
-  shoulder: false,
-  leg: false,
-  arm: false,
-  abdominal: false,
+  muscleGroups: [],
 };
 
 export const filterSlice = createSlice({
@@ -27,12 +17,7 @@ export const filterSlice = createSlice({
   initialState,
   reducers: {
     checkboxFilter: (state, action: PayloadAction<FilterState>) => {
-      state.pectoral = action.payload.pectoral;
-      state.spinal = action.payload.spinal;
-      state.shoulder = action.payload.shoulder;
-      state.leg = action.payload.leg;
-      state.arm = action.payload.arm;
-      state.abdominal = action.payload.abdominal;
+      state.muscleGroups = action.payload.muscleGroups;
     },
     radioFilter: (state, action: PayloadAction<FilterState>) => {
       state.place = action.payload.place;
