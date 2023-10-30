@@ -7,14 +7,13 @@ import {
   checkboxFilter,
   radioFilter,
 } from '@/store/reducers/ExerciseSlice';
-import { Place } from '@/types/types';
+import { Group, Place } from '@/types/types';
 import Button from '../Button/Button';
-import cl from 'classnames';
 
 const radioButtons = [
   { id: 1, place: 'street', text: 'На улице/дома' },
   { id: 2, place: 'gym', text: 'Тренажерный зал' },
-  { id: 3, place: 'all', text: 'Показать все' },
+  { id: 3, place: 'all', text: 'Показать все', defaultChecked: true },
 ];
 
 const checkboxButtons = [
@@ -26,10 +25,14 @@ const checkboxButtons = [
   { id: 6, muscleGroup: 'abdominal', text: 'Мышцы живота' },
 ];
 
+const initialFilterState: FilterState = {
+  place: 'all',
+  muscleGroups: [],
+};
+
 const FormFilter = () => {
-  const dispatch = useAppDispatch();
-  const [selectedFilters, setSelectedFilters] = useState<FilterState>({
-    place: 'all',
+  const [filterState, setFilterState] = useState(initialFilterState);
+  const [checkedCheckboxes, setCheckedCheckboxes] = useState({
     pectoral: false,
     spinal: false,
     shoulder: false,
@@ -37,47 +40,53 @@ const FormFilter = () => {
     arm: false,
     abdominal: false,
   });
+  const dispatch = useAppDispatch();
 
   const saveFilterResults = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    dispatch(checkboxFilter(selectedFilters));
-    dispatch(radioFilter(selectedFilters));
+    dispatch(checkboxFilter(filterState));
+    dispatch(radioFilter(filterState));
   };
 
   const getCurrentFiltersCheckboxes = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    const updatedFilters = {
-      ...selectedFilters,
+    let muscleGroup: Group[] = [...filterState.muscleGroups];
+
+    setCheckedCheckboxes({
+      ...checkedCheckboxes,
       [event.target.value]: event.target.checked,
-    };
-    setSelectedFilters(updatedFilters);
+    });
+
+    if (event.target.checked) {
+      muscleGroup.push(event.target.value as Group);
+    } else {
+      muscleGroup = muscleGroup.filter(
+        (group) => group !== (event.target.value as Group),
+      );
+    }
+    setFilterState({ ...filterState, muscleGroups: muscleGroup });
   };
-  console.log(selectedFilters);
 
   const getCurrentFiltersRadio = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    const updatedFilters: FilterState = {
-      ...selectedFilters,
-      place: event.target.value as Place,
-    };
-    setSelectedFilters(updatedFilters);
+    filterState.place = event.target.value as Place;
   };
 
   const clearFilterResults = () => {
-    const initialFilter: FilterState = {
-      place: 'all',
+    filterState.place = 'all';
+    filterState.muscleGroups = [];
+    setCheckedCheckboxes({
       pectoral: false,
       spinal: false,
       shoulder: false,
       leg: false,
       arm: false,
       abdominal: false,
-    };
-    dispatch(checkboxFilter(initialFilter));
-    dispatch(radioFilter(initialFilter));
-    setSelectedFilters(initialFilter);
+    });
+    dispatch(checkboxFilter(filterState));
+    dispatch(radioFilter(filterState));
   };
 
   return (
@@ -98,6 +107,7 @@ const FormFilter = () => {
                     type="radio"
                     name="place"
                     value={radioButton.place}
+                    defaultChecked={radioButton.defaultChecked}
                     onChange={(event) => getCurrentFiltersRadio(event)}
                   ></input>
                   <label
@@ -120,6 +130,9 @@ const FormFilter = () => {
                     id={checkboxButton.muscleGroup}
                     type="checkbox"
                     value={checkboxButton.muscleGroup}
+                    checked={
+                      checkedCheckboxes[checkboxButton.muscleGroup as Group]
+                    }
                     onChange={(event) => getCurrentFiltersCheckboxes(event)}
                   ></input>
                   <label
