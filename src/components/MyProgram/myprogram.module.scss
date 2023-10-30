@@ -1,0 +1,16 @@
+.svgProgram {
+  position: absolute;
+  top: 30px;
+  right: 127px;
+  bottom: 0;
+
+  width: 24px;
+
+  fill: white;
+}
+
+@media (width >= 410px) {
+  .svgProgram {
+    right: 60px;
+  }
+}

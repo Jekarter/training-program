@@ -10,7 +10,6 @@ import Button from '../Button/Button';
 
 const Cards = () => {
   const checkedFilters = useAppSelector((state) => state.exercises);
-  console.log('filters', checkedFilters);
 
   const getFilterResultsRadio = (cards: ExerciseCards) => {
     const filteredPlace =

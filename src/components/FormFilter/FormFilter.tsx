@@ -25,13 +25,11 @@ const checkboxButtons = [
   { id: 6, muscleGroup: 'abdominal', text: 'Мышцы живота' },
 ];
 
-const initialFilterState: FilterState = {
-  place: 'all',
-  muscleGroups: [],
-};
-
 const FormFilter = () => {
-  const [filterState, setFilterState] = useState(initialFilterState);
+  const [filterState, setFilterState] = useState<FilterState>({
+    place: 'all',
+    muscleGroups: [],
+  });
   const [checkedCheckboxes, setCheckedCheckboxes] = useState({
     pectoral: false,
     spinal: false,
@@ -71,7 +69,7 @@ const FormFilter = () => {
   const getCurrentFiltersRadio = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    filterState.place = event.target.value as Place;
+    setFilterState({ ...filterState, place: event.target.value as Place });
   };
 
   const clearFilterResults = () => {
