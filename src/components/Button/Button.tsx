@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './button.module.scss';
+import { cardObject } from '@/types/types';
 
 interface ButtonProps {
   text: string;

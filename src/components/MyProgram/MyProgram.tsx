@@ -1,8 +1,15 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import styles from './myprogram.module.scss';
 import Link from 'next/link';
+import { useAppSelector } from '@/hooks/hooks';
 
 const MyProgram = () => {
+  const numberExercises = useAppSelector(
+    (state) => state.program.myProgram.length,
+  );
+  console.log(numberExercises);
+
   return (
     <div>
       <Link href={'/program'}>
@@ -49,6 +56,9 @@ const MyProgram = () => {
             </g>
           </g>
         </svg>
+        {numberExercises > 0 && (
+          <span className={styles.numberExercises}>{numberExercises}</span>
+        )}
       </Link>
     </div>
   );

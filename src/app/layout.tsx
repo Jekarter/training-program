@@ -22,15 +22,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body>
-        <Header>
-          <Navigation />
-          <MyProgram />
-          <Account />
-        </Header>
-        <ReduxProvider>{children}</ReduxProvider>
-        <Footer />
-      </body>
+      <ReduxProvider>
+        <body>
+          <Header>
+            <Navigation />
+            <MyProgram />
+            <Account />
+          </Header>
+          {children}
+          <Footer />
+        </body>
+      </ReduxProvider>
     </html>
   );
 }

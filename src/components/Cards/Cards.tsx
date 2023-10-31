@@ -1,15 +1,26 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './cards.module.scss';
 import { cards } from '@/data/data';
 import Card from '../Card/Card';
 import Link from 'next/link';
 import { ExerciseCards, cardObject } from '@/types/types';
-import { useAppSelector } from '@/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import Button from '../Button/Button';
+import {
+  ProgramState,
+  addExerciseToProgram,
+} from '@/store/reducers/ProgramSlice';
 
 const Cards = () => {
   const checkedFilters = useAppSelector((state) => state.exercises);
+  const dispatch = useAppDispatch();
+  const [exercisesInProgram, setExercisesInProgram] = useState<ProgramState>({
+    myProgram: [],
+    countPrograms: 0,
+  });
+
+  const [isAddInProgram, setIsAddInProgram] = useState<boolean>(false);
 
   const getFilterResultsRadio = (cards: ExerciseCards) => {
     const filteredPlace =
@@ -24,6 +35,22 @@ const Cards = () => {
           checkedFilters.muscleGroups.includes(filteredMuscleGroup.group),
         )
       : filteredPlace;
+  };
+
+  const handleAddExerciseToProgram = (exerciseCard: cardObject) => {
+    let exercises = [...exercisesInProgram.myProgram];
+
+    if (exercisesInProgram.myProgram.includes(exerciseCard)) {
+      exercises = exercises.filter(
+        (exercise) => exercise.id !== exerciseCard.id,
+      );
+    } else {
+      exercises.push(exerciseCard);
+    }
+    setExercisesInProgram({ ...exercisesInProgram, myProgram: exercises });
+    dispatch(
+      addExerciseToProgram({ ...exercisesInProgram, myProgram: exercises }),
+    );
   };
 
   return (
@@ -41,7 +68,8 @@ const Cards = () => {
             </Link>
             <Button
               className={styles.button}
-              text={'Добавить в мою программу'}
+              text={isAddInProgram ? 'Удалить' : 'Добавить в мою программу'}
+              onClick={() => handleAddExerciseToProgram(filterCard)}
             />
           </li>
         ))}
