@@ -10,13 +10,13 @@ import {
 import { Group, Place } from '@/types/types';
 import Button from '../Button/Button';
 
-const radioButtons = [
+const placesWithText = [
   { id: 1, place: 'street', text: 'На улице/дома' },
   { id: 2, place: 'gym', text: 'Тренажерный зал' },
   { id: 3, place: 'all', text: 'Показать все', defaultChecked: true },
 ];
 
-const checkboxButtons = [
+const groupsWithText = [
   { id: 1, muscleGroup: 'pectoral', text: 'Грудные' },
   { id: 2, muscleGroup: 'spinal', text: 'Спинные' },
   { id: 3, muscleGroup: 'shoulder', text: 'Плечевые' },
@@ -97,7 +97,7 @@ const FormFilter = () => {
               Где будет проходить тренировка:
             </legend>
             <ul className={styles.list}>
-              {radioButtons.map((radioButton) => (
+              {placesWithText.map((radioButton) => (
                 <li className={styles.listItem} key={radioButton.id}>
                   <input
                     className="visually-hidden"
@@ -121,7 +121,7 @@ const FormFilter = () => {
           <fieldset className={styles.group}>
             <legend className={styles.titleFilter}>Мышцы по группам:</legend>
             <ul className={styles.list}>
-              {checkboxButtons.map((checkboxButton) => (
+              {groupsWithText.map((checkboxButton) => (
                 <li className={styles.listItem} key={checkboxButton.id}>
                   <input
                     className="visually-hidden"
@@ -147,10 +147,12 @@ const FormFilter = () => {
 
         <div className={styles.buttonContainer}>
           <Button
+            className={styles.button}
             text="Подтвердить"
             onClick={(event) => saveFilterResults(event)}
           />
           <Button
+            className={styles.buttonReset}
             text="Сбросить фильтр"
             type="reset"
             onClick={() => clearFilterResults()}

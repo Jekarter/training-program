@@ -1,27 +1,44 @@
-import { ExerciseCards } from '@/types/types';
+import { ExerciseCards, cardObject } from '@/types/types';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-export interface ProgramState {
+interface inititalProgram {
   myProgram: ExerciseCards;
-  countPrograms: number;
+  pectoral: false;
+  spinal: false;
+  shoulder: false;
+  leg: false;
+  arm: false;
+  abdominal: false;
 }
 
-const initialState: ProgramState = {
-  myProgram: [],
-  countPrograms: 0,
-};
+const initialState: ExerciseCards = [];
 
 export const ProgramSlice = createSlice({
   name: 'program',
   initialState,
   reducers: {
-    addExerciseToProgram: (state, action: PayloadAction<ProgramState>) => {
-      state.myProgram = action.payload.myProgram;
-      state.countPrograms = action.payload.myProgram.length;
+    addExerciseToProgram: (state, action: PayloadAction<cardObject>) => {
+      const existingIndex = state.findIndex(
+        (item) => item.id === action.payload.id,
+      );
+
+      if (existingIndex !== -1) {
+        state.splice(existingIndex, 1);
+      } else {
+        state.push(action.payload);
+      }
+    },
+    deleteExerciseFromProgram: (state, action: PayloadAction<cardObject>) => {
+      const existingIndex = state.findIndex(
+        (item) => item.id === action.payload.id,
+      );
+
+      state.splice(existingIndex, 1);
     },
   },
 });
 
-export const { addExerciseToProgram } = ProgramSlice.actions;
+export const { addExerciseToProgram, deleteExerciseFromProgram } =
+  ProgramSlice.actions;
 export default ProgramSlice.reducer;

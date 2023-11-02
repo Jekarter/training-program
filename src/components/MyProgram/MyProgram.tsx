@@ -5,9 +5,7 @@ import Link from 'next/link';
 import { useAppSelector } from '@/hooks/hooks';
 
 const MyProgram = () => {
-  const numberExercises = useAppSelector(
-    (state) => state.program.myProgram.length,
-  );
+  const numberExercises = useAppSelector((state) => state.program.length);
   console.log(numberExercises);
 
   return (

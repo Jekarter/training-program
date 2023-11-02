@@ -1,21 +1,36 @@
 import React from 'react';
 import styles from './button.module.scss';
-import { cardObject } from '@/types/types';
+import cl from 'classnames';
 
 interface ButtonProps {
-  text: string;
+  text?: string;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
+  children?: React.ReactNode;
+  disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button = ({ text, className, type, onClick }: ButtonProps) => {
+const Button = ({
+  text,
+  className,
+  type,
+  children,
+  disabled,
+  onClick,
+}: ButtonProps) => {
   return (
-    <div className={styles.buttonContainer}>
-      <button className={className} type={type} onClick={onClick}>
-        {text}
+    <>
+      <button
+        className={cl(styles.button, className)}
+        type={type}
+        onClick={onClick}
+        disabled={disabled}
+      >
+        {children}
+        <span>{text}</span>
       </button>
-    </div>
+    </>
   );
 };
 

@@ -23,6 +23,28 @@
   border-radius: 5px;
 }
 
+.icon {
+  position: absolute;
+  bottom: 23px;
+  left: 106px;
+}
+
+.buttonDelete {
+  background: linear-gradient(0.5turn, #604b3f, #bf0404);
+}
+
+.button {
+  background: linear-gradient(0.5turn, #604b3f, #8e4b01);
+}
+
+.buttonContainerDelete {
+  text-align: end;
+}
+
+.buttonContainer {
+  text-align: end;
+}
+
 @media (width >= 700px) {
   .list {
     display: flex;

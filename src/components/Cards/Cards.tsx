@@ -7,20 +7,15 @@ import Link from 'next/link';
 import { ExerciseCards, cardObject } from '@/types/types';
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import Button from '../Button/Button';
-import {
-  ProgramState,
-  addExerciseToProgram,
-} from '@/store/reducers/ProgramSlice';
+import { addExerciseToProgram } from '@/store/reducers/ProgramSlice';
+import Image from 'next/image';
+import deleteIcon from '/public/delete.svg';
+import addIcon from '/public/add.svg';
 
 const Cards = () => {
   const checkedFilters = useAppSelector((state) => state.exercises);
+  const selectedExercises = useAppSelector((state) => state.program);
   const dispatch = useAppDispatch();
-  const [exercisesInProgram, setExercisesInProgram] = useState<ProgramState>({
-    myProgram: [],
-    countPrograms: 0,
-  });
-
-  const [isAddInProgram, setIsAddInProgram] = useState<boolean>(false);
 
   const getFilterResultsRadio = (cards: ExerciseCards) => {
     const filteredPlace =
@@ -38,19 +33,7 @@ const Cards = () => {
   };
 
   const handleAddExerciseToProgram = (exerciseCard: cardObject) => {
-    let exercises = [...exercisesInProgram.myProgram];
-
-    if (exercisesInProgram.myProgram.includes(exerciseCard)) {
-      exercises = exercises.filter(
-        (exercise) => exercise.id !== exerciseCard.id,
-      );
-    } else {
-      exercises.push(exerciseCard);
-    }
-    setExercisesInProgram({ ...exercisesInProgram, myProgram: exercises });
-    dispatch(
-      addExerciseToProgram({ ...exercisesInProgram, myProgram: exercises }),
-    );
+    dispatch(addExerciseToProgram(exerciseCard));
   };
 
   return (
@@ -66,11 +49,35 @@ const Cards = () => {
                 description={filterCard.description}
               />
             </Link>
-            <Button
-              className={styles.button}
-              text={isAddInProgram ? 'Удалить' : 'Добавить в мою программу'}
-              onClick={() => handleAddExerciseToProgram(filterCard)}
-            />
+            {selectedExercises.includes(filterCard) ? (
+              <div>
+                <div className={styles.buttonContainerDelete}>
+                  <Button
+                    className={styles.buttonDelete}
+                    text={'Удалить'}
+                    onClick={() => handleAddExerciseToProgram(filterCard)}
+                  >
+                    <div className={styles.icon}>
+                      <Image src={deleteIcon} width={30} height={30} alt="" />
+                    </div>
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className={styles.buttonContainer}>
+                  <Button
+                    className={styles.button}
+                    text={'Добавить'}
+                    onClick={() => handleAddExerciseToProgram(filterCard)}
+                  >
+                    <div className={styles.icon}>
+                      <Image src={addIcon} width={30} height={30} alt="" />
+                    </div>
+                  </Button>
+                </div>
+              </div>
+            )}
           </li>
         ))}
       </ul>
