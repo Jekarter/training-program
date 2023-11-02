@@ -1,16 +1,21 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './cards.module.scss';
 import { cards } from '@/data/data';
 import Card from '../Card/Card';
 import Link from 'next/link';
 import { ExerciseCards, cardObject } from '@/types/types';
-import { useAppSelector } from '@/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import Button from '../Button/Button';
+import { addExerciseToProgram } from '@/store/reducers/ProgramSlice';
+import Image from 'next/image';
+import deleteIcon from '/public/delete.svg';
+import addIcon from '/public/add.svg';
 
 const Cards = () => {
   const checkedFilters = useAppSelector((state) => state.exercises);
-  console.log('filters', checkedFilters);
+  const selectedExercises = useAppSelector((state) => state.program);
+  const dispatch = useAppDispatch();
 
   const getFilterResultsRadio = (cards: ExerciseCards) => {
     const filteredPlace =
@@ -27,6 +32,10 @@ const Cards = () => {
       : filteredPlace;
   };
 
+  const handleAddExerciseToProgram = (exerciseCard: cardObject) => {
+    dispatch(addExerciseToProgram(exerciseCard));
+  };
+
   return (
     <div className={styles.catalog}>
       <ul className={styles.list}>
@@ -40,10 +49,35 @@ const Cards = () => {
                 description={filterCard.description}
               />
             </Link>
-            <Button
-              className={styles.button}
-              text={'Добавить в мою программу'}
-            />
+            {selectedExercises.includes(filterCard) ? (
+              <div>
+                <div className={styles.buttonContainerDelete}>
+                  <Button
+                    className={styles.buttonDelete}
+                    text={'Удалить'}
+                    onClick={() => handleAddExerciseToProgram(filterCard)}
+                  >
+                    <div className={styles.icon}>
+                      <Image src={deleteIcon} width={30} height={30} alt="" />
+                    </div>
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className={styles.buttonContainer}>
+                  <Button
+                    className={styles.button}
+                    text={'Добавить'}
+                    onClick={() => handleAddExerciseToProgram(filterCard)}
+                  >
+                    <div className={styles.icon}>
+                      <Image src={addIcon} width={30} height={30} alt="" />
+                    </div>
+                  </Button>
+                </div>
+              </div>
+            )}
           </li>
         ))}
       </ul>

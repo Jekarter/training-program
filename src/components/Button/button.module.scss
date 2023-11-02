@@ -1,11 +1,7 @@
-.buttonContainer {
-  text-align: center;
-}
-
-.buttonContainer button {
+.button {
   cursor: pointer;
 
-  width: 240px;
+  width: 160px;
   margin: 10px;
   padding: 10px;
 
@@ -14,7 +10,11 @@
   color: #fff;
   text-transform: uppercase;
 
-  background: linear-gradient(0.5turn, #604b3f, #8e4b01);
   border: none;
   border-radius: 8px;
+}
+
+.button:disabled {
+  background: linear-gradient(0.5turn, #604b3f, #bebebe);
+  opacity: 0.5;
 }
