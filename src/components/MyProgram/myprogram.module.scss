@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+}
+
+.numberExercises {
+  position: absolute;
+  width: 13px;
+  height: 15px;
+  background-color: green;
+  z-index: 2;
+  bottom: 24px;
+  right: 60px;
+  border-radius: 50%;
+  font-size: 10px;
+  text-align: center;
+}
+
+.svgProgram {
+  position: absolute;
+  top: 30px;
+  right: 127px;
+  bottom: 0;
+
+  width: 24px;
+
+  fill: white;
+}
+
+@media (width >= 410px) {
+  .svgProgram {
+    right: 60px;
+  }
+}

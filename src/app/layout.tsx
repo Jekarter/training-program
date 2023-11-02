@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation/Navigation';
 import Footer from '@/components/Footer/Footer';
 import { ReduxProvider } from '@/store/provider';
 import Account from '@/components/Account/Account';
+import MyProgram from '@/components/MyProgram/MyProgram';
 
 export const metadata: Metadata = {
   title: 'Программа Тренировок',
@@ -21,14 +22,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body>
-        <Header>
-          <Navigation />
-          <Account />
-        </Header>
-        <ReduxProvider>{children}</ReduxProvider>
-        <Footer />
-      </body>
+      <ReduxProvider>
+        <body>
+          <Header>
+            <Navigation />
+            <MyProgram />
+            <Account />
+          </Header>
+          {children}
+          <Footer />
+        </body>
+      </ReduxProvider>
     </html>
   );
 }

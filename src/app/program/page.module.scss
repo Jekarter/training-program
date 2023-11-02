@@ -1,0 +1,60 @@
+.container {
+  min-height: calc(100vh - 80px);
+}
+
+.title {
+  margin: 40px;
+  text-align: center;
+}
+
+.itemTitle {
+  padding: 10px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.listItem {
+  position: relative;
+  display: flex;
+  margin: 10px;
+}
+
+.description {
+  padding: 10px;
+}
+
+.containerDelete {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.buttonDelete {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.buttonDownload {
+  text-align: center;
+}
+
+.buttonDownload button {
+  background: linear-gradient(0.5turn, #604b3f, #8e4b01);
+}
+
+.info {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.textDisable {
+  width: 420px;
+  margin: 15px auto;
+}
