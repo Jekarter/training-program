@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
-      <ReduxProvider>
+    <ReduxProvider>
+      <html lang="ru">
         <body>
           <Header>
             <Navigation />
@@ -32,7 +32,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </body>
-      </ReduxProvider>
-    </html>
+      </html>
+    </ReduxProvider>
   );
 }
