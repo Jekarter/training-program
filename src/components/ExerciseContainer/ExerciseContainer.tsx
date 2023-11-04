@@ -3,7 +3,6 @@ import Image from 'next/image';
 import React from 'react';
 import styles from './exercisecontainer.module.scss';
 import Link from 'next/link';
-import { CloudinaryImage } from '@cloudinary/url-gen';
 
 const ExerciseContainer = ({ ...props }: cardObject) => {
   return (

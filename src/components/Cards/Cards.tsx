@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './cards.module.scss';
 import { cards } from '@/data/data';
 import Card from '../Card/Card';

@@ -2,11 +2,6 @@ import React from 'react';
 import styles from './abouttabs.module.scss';
 
 const AboutTabs = () => {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
   return (
     <div className={styles.container}>
       <div>

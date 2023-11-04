@@ -2,7 +2,7 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styles from './myprofile.module.scss';
-import classNames from 'classnames';
+import cl from 'classnames';
 import Button from '../Button/Button';
 
 type Inputs = {
@@ -30,7 +30,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className={classNames(styles.formContainer, 'containerMain')}>
+    <div className={cl(styles.formContainer, 'containerMain')}>
       <h1 className={styles.title}>Личный кабинет</h1>
       <form
         className={styles.form}
