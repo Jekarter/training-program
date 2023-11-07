@@ -106,21 +106,3 @@ const Program = () => {
 };
 
 export default Program;
-
-{
-  /* <div>
-          <div className={styles.info}>
-            <p>Всего упражнений: {listExercises.length}</p>
-            <p>
-              Упражнения на группы:{' '}
-              {listExercises.map((el) => `${groupsWithText[el.group]} `)}
-            </p>
-          </div>
-          <div className={styles.buttonDownload}>
-            <Button
-              text="Скачать"
-              onClick={() => handleDownloadExercises(listExercises)}
-            />
-          </div>
-      </div> */
-}
