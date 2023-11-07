@@ -10,7 +10,15 @@ import ReactPDF, {
   Font,
 } from '@react-pdf/renderer';
 import { ExerciseCards } from '@/types/types';
-import { groupsWithText } from '@/app/program/page';
+
+const groupsWithText = {
+  pectoral: 'Грудные',
+  spinal: 'Спинные',
+  shoulder: 'Плечевые',
+  leg: 'Мышцы ног',
+  arm: 'Мышцы рук',
+  abdominal: 'Мышцы живота',
+};
 
 const DOMEN = 'https://training-program.netlify.app/';
 

@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import TemplatePdf from '@/components/TemplatePdf/TemplatePdf';
 
-export const groupsWithText = {
+const groupsWithText = {
   pectoral: 'Грудные',
   spinal: 'Спинные',
   shoulder: 'Плечевые',
@@ -88,14 +88,12 @@ const Program = () => {
             <Button onClick={() => handleDownloadExercises(listExercises)}>
               <PDFDownloadLink
                 document={<TemplatePdf exercises={listExercises} />}
-                fileName="listExercises.pdf"
+                fileName="Training-program.pdf"
                 style={{
                   textDecoration: 'none',
                 }}
               >
-                {({ blob, url, loading, error }) =>
-                  loading ? 'loading...' : 'Скачать PDF'
-                }
+                {({ blob, url, loading, error }) => 'Скачать PDF'}
               </PDFDownloadLink>
             </Button>
           </div>
