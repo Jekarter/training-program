@@ -38,13 +38,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 40,
   },
-  subtitle: {
-    fontSize: 12,
-    margin: 12,
+  text: {
+    margin: 10,
+    fontSize: 10,
+    textAlign: 'justify',
     fontFamily: 'Roboto',
   },
-  text: {
-    margin: 12,
+  listActions: {
     fontSize: 10,
     textAlign: 'justify',
     fontFamily: 'Roboto',
@@ -60,6 +60,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'grey',
     fontFamily: 'Roboto',
+  },
+  view: {
+    margin: 10,
   },
   pageNumber: {
     position: 'absolute',
@@ -104,14 +107,14 @@ const TemplatePdf = ({ exercises }: { exercises: ExerciseCards }) => {
               </View>
               <View>
                 {exercise.actionList.map((action, index) => (
-                  <Text key={action} style={styles.text}>
+                  <Text key={action} style={styles.listActions}>
                     {`${index + 1}) ${action}`}
                   </Text>
                 ))}
               </View>
               <View>
                 {exercise.whoUseIt.map((use) => (
-                  <Text key={use} style={styles.text}>
+                  <Text key={use} style={styles.listActions}>
                     {use}
                   </Text>
                 ))}
