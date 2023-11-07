@@ -17,7 +17,7 @@ const Cards = () => {
   const selectedExercises = useAppSelector((state) => state.program);
   const dispatch = useAppDispatch();
 
-  const getFilterResultsRadio = (cards: ExerciseCards) => {
+  const getFilterResults = (cards: ExerciseCards) => {
     const filteredPlace =
       checkedFilters.place === 'all'
         ? cards
@@ -39,7 +39,7 @@ const Cards = () => {
   return (
     <div className={styles.catalog}>
       <ul className={styles.list}>
-        {getFilterResultsRadio(cards).map((filterCard: cardObject) => (
+        {getFilterResults(cards).map((filterCard: cardObject) => (
           <li className={styles.listItem} key={filterCard.id}>
             <Link href={`../../exercise/${filterCard.id}`}>
               <Card

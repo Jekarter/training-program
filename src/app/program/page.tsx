@@ -4,10 +4,12 @@ import styles from './page.module.scss';
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import Image from 'next/image';
 import deleteIcon from '/public/delete.svg';
-import { cardObject } from '@/types/types';
+import { ExerciseCards, cardObject } from '@/types/types';
 import { deleteExerciseFromProgram } from '@/store/reducers/ProgramSlice';
 import Button from '@/components/Button/Button';
 import Link from 'next/link';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import TemplatePdf from '@/components/TemplatePdf/TemplatePdf';
 
 const groupsWithText = {
   pectoral: 'Грудные',
@@ -21,10 +23,13 @@ const groupsWithText = {
 const Program = () => {
   const listExercises = useAppSelector((state) => state.program);
   const dispatch = useAppDispatch();
+  console.log('program', listExercises);
 
   const handleRemoveItem = (exerciseOnDelete: cardObject) => {
     dispatch(deleteExerciseFromProgram(exerciseOnDelete));
   };
+
+  const handleDownloadExercises = (listExercises: ExerciseCards) => {};
 
   return (
     <div className={styles.container}>
@@ -80,7 +85,17 @@ const Program = () => {
             </p>
           </div>
           <div className={styles.buttonDownload}>
-            <Button text="Скачать" />
+            <Button onClick={() => handleDownloadExercises(listExercises)}>
+              <PDFDownloadLink
+                document={<TemplatePdf exercises={listExercises} />}
+                fileName="listExercises.pdf"
+                style={{
+                  textDecoration: 'none',
+                }}
+              >
+                {({ blob, url, loading, error }) => 'Скачать PDF'}
+              </PDFDownloadLink>
+            </Button>
           </div>
         </div>
       )}
@@ -89,3 +104,21 @@ const Program = () => {
 };
 
 export default Program;
+
+{
+  /* <div>
+          <div className={styles.info}>
+            <p>Всего упражнений: {listExercises.length}</p>
+            <p>
+              Упражнения на группы:{' '}
+              {listExercises.map((el) => `${groupsWithText[el.group]} `)}
+            </p>
+          </div>
+          <div className={styles.buttonDownload}>
+            <Button
+              text="Скачать"
+              onClick={() => handleDownloadExercises(listExercises)}
+            />
+          </div>
+      </div> */
+}
