@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     color: 'grey',
     fontFamily: 'Roboto',
   },
-  view: {
+  viewBlock: {
     margin: 10,
   },
   pageNumber: {
@@ -105,14 +105,14 @@ const TemplatePdf = ({ exercises }: { exercises: ExerciseCards }) => {
                   <Text style={styles.text}>{exercise.title}</Text>
                 )}
               </View>
-              <View>
+              <View style={styles.viewBlock}>
                 {exercise.actionList.map((action, index) => (
                   <Text key={action} style={styles.listActions}>
                     {`${index + 1}) ${action}`}
                   </Text>
                 ))}
               </View>
-              <View>
+              <View style={styles.viewBlock}>
                 {exercise.whoUseIt.map((use) => (
                   <Text key={use} style={styles.listActions}>
                     {use}
