@@ -33,6 +33,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Roboto',
   },
+  subtitle: {
+    fontSize: 12,
+    textAlign: 'center',
+    fontFamily: 'Roboto',
+  },
   author: {
     fontSize: 12,
     textAlign: 'center',
@@ -106,6 +111,7 @@ const TemplatePdf = ({ exercises }: { exercises: ExerciseCards }) => {
                 )}
               </View>
               <View style={styles.viewBlock}>
+                <Text style={styles.subtitle}>Выполнение упражнения:</Text>
                 {exercise.actionList.map((action, index) => (
                   <Text key={action} style={styles.listActions}>
                     {`${index + 1}) ${action}`}
@@ -113,6 +119,7 @@ const TemplatePdf = ({ exercises }: { exercises: ExerciseCards }) => {
                 ))}
               </View>
               <View style={styles.viewBlock}>
+                <Text style={styles.subtitle}>Использование:</Text>
                 {exercise.whoUseIt.map((use) => (
                   <Text key={use} style={styles.listActions}>
                     {use}
