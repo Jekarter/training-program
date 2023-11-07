@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import TemplatePdf from '@/components/TemplatePdf/TemplatePdf';
 
-const groupsWithText = {
+export const groupsWithText = {
   pectoral: 'Грудные',
   spinal: 'Спинные',
   shoulder: 'Плечевые',
@@ -93,7 +93,9 @@ const Program = () => {
                   textDecoration: 'none',
                 }}
               >
-                {({ blob, url, loading, error }) => 'Скачать PDF'}
+                {({ blob, url, loading, error }) =>
+                  loading ? 'loading...' : 'Скачать PDF'
+                }
               </PDFDownloadLink>
             </Button>
           </div>

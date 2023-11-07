@@ -10,6 +10,7 @@ import ReactPDF, {
   Font,
 } from '@react-pdf/renderer';
 import { ExerciseCards } from '@/types/types';
+import { groupsWithText } from '@/app/program/page';
 
 const DOMEN = 'https://training-program.netlify.app/';
 
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     maxHeight: 200,
   },
   header: {
-    fontSize: 10,
+    fontSize: 8,
     marginBottom: 20,
     textAlign: 'center',
     color: 'grey',
@@ -55,9 +56,8 @@ const styles = StyleSheet.create({
   pageNumber: {
     position: 'absolute',
     fontSize: 12,
-    bottom: 30,
-    left: 0,
-    right: 0,
+    bottom: 0,
+    right: 15,
     textAlign: 'center',
     color: 'grey',
   },
@@ -75,12 +75,15 @@ const TemplatePdf = ({ exercises }: { exercises: ExerciseCards }) => {
       <Page style={styles.body}>
         <View>
           <Text style={styles.header} fixed>
-            Программа Тренировок Trainify
+            Программа Тренировок создана на Trainify
           </Text>
           {exercises.map((exercise, index) => (
             <View key={exercise.id}>
               <Text style={styles.title}>
                 {`${index + 1}) ${exercise.title}`}
+              </Text>
+              <Text style={styles.text}>
+                Группа мышц: {groupsWithText[exercise.group]}
               </Text>
               <Image style={styles.image} src={exercise.img} />
               <Text style={styles.text}>{exercise.description}</Text>
@@ -99,21 +102,21 @@ const TemplatePdf = ({ exercises }: { exercises: ExerciseCards }) => {
                 ))}
               </View>
               <View>
-                {exercise.whoUseIt.map((use, index) => (
+                {exercise.whoUseIt.map((use) => (
                   <Text key={use} style={styles.text}>
                     {use}
                   </Text>
                 ))}
               </View>
-              <Text
-                style={styles.pageNumber}
-                render={({ pageNumber, totalPages }) =>
-                  `${pageNumber} / ${totalPages}`
-                }
-                fixed
-              />
             </View>
           ))}
+          <Text
+            style={styles.pageNumber}
+            render={({ pageNumber, totalPages }) =>
+              `${pageNumber} / ${totalPages}`
+            }
+            fixed
+          />
         </View>
       </Page>
     </Document>
