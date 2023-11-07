@@ -66,6 +66,9 @@ const styles = StyleSheet.create({
     color: 'grey',
     fontFamily: 'Roboto',
   },
+  exerciseBlock: {
+    marginBottom: 80,
+  },
   viewBlock: {
     margin: 10,
   },
@@ -94,7 +97,7 @@ const TemplatePdf = ({ exercises }: { exercises: ExerciseCards }) => {
             Программа Тренировок создана на Trainify
           </Text>
           {exercises.map((exercise, index) => (
-            <View key={exercise.id}>
+            <View key={exercise.id} style={styles.exerciseBlock}>
               <Text style={styles.title}>
                 {`${index + 1}) ${exercise.title}`}
               </Text>
