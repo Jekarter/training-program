@@ -11,6 +11,7 @@ import { addExerciseToProgram } from '@/store/reducers/ProgramSlice';
 import Image from 'next/image';
 import deleteIcon from '/public/delete.svg';
 import addIcon from '/public/add.svg';
+import { URLSearchParams } from 'url';
 
 const Cards = () => {
   const checkedFilters = useAppSelector((state) => state.exercises);

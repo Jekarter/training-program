@@ -29,8 +29,6 @@ const Program = () => {
     dispatch(deleteExerciseFromProgram(exerciseOnDelete));
   };
 
-  const handleDownloadExercises = (listExercises: ExerciseCards) => {};
-
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Моя программа:</h1>
@@ -85,7 +83,7 @@ const Program = () => {
             </p>
           </div>
           <div className={styles.buttonDownload}>
-            <Button onClick={() => handleDownloadExercises(listExercises)}>
+            <Button>
               <PDFDownloadLink
                 document={<TemplatePdf exercises={listExercises} />}
                 fileName="Training-program.pdf"
@@ -93,7 +91,7 @@ const Program = () => {
                   textDecoration: 'none',
                 }}
               >
-                {({ blob, url, loading, error }) => 'Скачать PDF'}
+                Скачать PDF
               </PDFDownloadLink>
             </Button>
           </div>

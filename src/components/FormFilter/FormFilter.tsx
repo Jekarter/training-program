@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './formfilter.module.scss';
 import { useAppDispatch } from '@/hooks/hooks';
 import {
@@ -7,8 +7,11 @@ import {
   checkboxFilter,
   radioFilter,
 } from '@/store/reducers/ExerciseSlice';
-import { Group, Place } from '@/types/types';
+import { ExerciseCards, Group, Place, cardObject } from '@/types/types';
 import Button from '../Button/Button';
+import { usePathname, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 const placesWithText = [
   { id: 1, place: 'street', text: 'На улице/дома' },
@@ -40,6 +43,22 @@ const FormFilter = () => {
   });
   const dispatch = useAppDispatch();
 
+  const router = useRouter();
+  const searchParams = useSearchParams()!;
+  const selectedPlace = searchParams.get('filter') as string;
+
+  // Get a new searchParams string by merging the current
+  // searchParams with a provided key/value pair
+  /*  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams],
+  );  */
+
   const saveFilterResults = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     dispatch(checkboxFilter(filterState));
@@ -70,6 +89,7 @@ const FormFilter = () => {
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setFilterState({ ...filterState, place: event.target.value as Place });
+    console.log(event.target.value);
   };
 
   const clearFilterResults = () => {
@@ -99,21 +119,27 @@ const FormFilter = () => {
             <ul className={styles.list}>
               {placesWithText.map((radioButton) => (
                 <li className={styles.listItem} key={radioButton.id}>
-                  <input
-                    className="visually-hidden"
-                    id={radioButton.place}
-                    type="radio"
-                    name="place"
-                    value={radioButton.place}
-                    defaultChecked={radioButton.defaultChecked}
-                    onChange={(event) => getCurrentFiltersRadio(event)}
-                  ></input>
-                  <label
-                    className={styles.radioLabel}
-                    htmlFor={radioButton.place}
+                  <Link
+                    href={`?place=&${new URLSearchParams({
+                      place: selectedPlace,
+                    })}`}
                   >
-                    {radioButton.text}
-                  </label>
+                    <input
+                      className="visually-hidden"
+                      id={radioButton.place}
+                      type="radio"
+                      name="place"
+                      value={radioButton.place}
+                      defaultChecked={radioButton.defaultChecked}
+                      onChange={(event) => getCurrentFiltersRadio(event)}
+                    ></input>
+                    <label
+                      className={styles.radioLabel}
+                      htmlFor={radioButton.place}
+                    >
+                      {radioButton.text}
+                    </label>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -164,3 +190,28 @@ const FormFilter = () => {
 };
 
 export default FormFilter;
+
+/*   const [selectedPlace, setSelectedPlace] = useState<Place>('all'); 
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const selectedPlace = searchParams.place
+  
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams],
+  );
+
+  const getUpdatedUrlCategories = (place: Place) => {
+    router.push(pathname + createQueryString(`place`, `${place}`), {
+      scroll: false,
+    });
+  };
+   */

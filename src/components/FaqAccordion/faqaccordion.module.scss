@@ -3,3 +3,39 @@
   min-width: 360px;
   margin: 70px auto;
 }
+
+.accordion {
+  margin: 16px;
+  padding: 16px;
+
+  list-style: none;
+
+  background-color: #dcdcdc;
+  border-radius: 7px;
+}
+
+.accordionHeader {
+  cursor: pointer;
+
+  position: relative;
+
+  width: 100%;
+  padding: 20px 60px 20px 30px;
+
+  font-size: 22px;
+  text-align: left;
+
+  background-color: #fff;
+  border-radius: 7px;
+}
+
+.accordionBody {
+  padding: 30px 60px 30px 30px;
+
+  font-size: 20px;
+  color: #393939;
+
+  background-color: #f1f1f1;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
