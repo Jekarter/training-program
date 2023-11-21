@@ -12,11 +12,12 @@
 }
 
 .list {
-  list-style: none;
-  padding: 0;
   width: 60%;
   margin: 0 auto;
   margin-bottom: 50px;
+  padding: 0;
+
+  list-style: none;
 }
 
 .listItem {
@@ -31,20 +32,20 @@
 
 .containerDelete {
   position: absolute;
-  right: 10px;
   top: 10px;
+  right: 10px;
 }
 
 .buttonDelete {
-  border: none;
-  background: none;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .buttonDownload {
-  text-align: center;
   margin-top: 20px;
   margin-bottom: 100px;
+  text-align: center;
 }
 
 .buttonDownload button {

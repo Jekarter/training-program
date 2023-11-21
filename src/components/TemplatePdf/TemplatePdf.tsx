@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import ReactPDF, {
+import {
   Page,
   Text,
   View,
@@ -19,8 +18,6 @@ const groupsWithText = {
   arm: 'Мышцы рук',
   abdominal: 'Мышцы живота',
 };
-
-const DOMEN = 'https://training-program.netlify.app/';
 
 const styles = StyleSheet.create({
   body: {
@@ -66,9 +63,6 @@ const styles = StyleSheet.create({
     color: 'grey',
     fontFamily: 'Roboto',
   },
-  exerciseBlock: {
-    marginBottom: 80,
-  },
   viewBlock: {
     margin: 10,
   },
@@ -88,26 +82,27 @@ Font.register({
 });
 
 const TemplatePdf = ({ exercises }: { exercises: ExerciseCards }) => {
-  console.log('pdf props', exercises);
   return (
     <Document language="ru">
-      <Page style={styles.body}>
-        <View>
-          <Text style={styles.header} fixed>
-            Программа Тренировок создана на Trainify
-          </Text>
-          {exercises.map((exercise, index) => (
-            <View key={exercise.id} style={styles.exerciseBlock}>
+      {exercises.map((exercise, index) => (
+        <Page key={exercise.id} style={styles.body}>
+          <View>
+            <Text style={styles.header} fixed>
+              Программа Тренировок создана на Trainify
+            </Text>
+            <View>
               <Text style={styles.title}>
                 {`${index + 1}) ${exercise.title}`}
               </Text>
               <Text style={styles.text}>
                 Группа мышц: {groupsWithText[exercise.group]}
               </Text>
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image style={styles.image} src={exercise.img} />
               <Text style={styles.text}>{exercise.description}</Text>
               <View>
                 {exercise.imgSecond ? (
+                  // eslint-disable-next-line jsx-a11y/alt-text
                   <Image style={styles.image} src={exercise.imgSecond} />
                 ) : (
                   <Text style={styles.text}>{exercise.title}</Text>
@@ -130,16 +125,16 @@ const TemplatePdf = ({ exercises }: { exercises: ExerciseCards }) => {
                 ))}
               </View>
             </View>
-          ))}
-          <Text
-            style={styles.pageNumber}
-            render={({ pageNumber, totalPages }) =>
-              `${pageNumber} / ${totalPages}`
-            }
-            fixed
-          />
-        </View>
-      </Page>
+            <Text
+              style={styles.pageNumber}
+              render={({ pageNumber, totalPages }) =>
+                `${pageNumber} / ${totalPages}`
+              }
+              fixed
+            />
+          </View>
+        </Page>
+      ))}
     </Document>
   );
 };
