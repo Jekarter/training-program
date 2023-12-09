@@ -43,10 +43,10 @@ const FormFilter = () => {
   });
   const dispatch = useAppDispatch();
 
-  const router = useRouter();
+  /*   const router = useRouter();
   const searchParams = useSearchParams()!;
   const selectedPlace = searchParams.get('filter') as string;
-
+ */
   // Get a new searchParams string by merging the current
   // searchParams with a provided key/value pair
   /*  const createQueryString = useCallback(
@@ -119,27 +119,27 @@ const FormFilter = () => {
             <ul className={styles.list}>
               {placesWithText.map((radioButton) => (
                 <li className={styles.listItem} key={radioButton.id}>
-                  <Link
+                  {/*                   <Link
                     href={`?place=&${new URLSearchParams({
                       place: selectedPlace,
                     })}`}
+                  > */}
+                  <input
+                    className="visually-hidden"
+                    id={radioButton.place}
+                    type="radio"
+                    name="place"
+                    value={radioButton.place}
+                    defaultChecked={radioButton.defaultChecked}
+                    onChange={(event) => getCurrentFiltersRadio(event)}
+                  ></input>
+                  <label
+                    className={styles.radioLabel}
+                    htmlFor={radioButton.place}
                   >
-                    <input
-                      className="visually-hidden"
-                      id={radioButton.place}
-                      type="radio"
-                      name="place"
-                      value={radioButton.place}
-                      defaultChecked={radioButton.defaultChecked}
-                      onChange={(event) => getCurrentFiltersRadio(event)}
-                    ></input>
-                    <label
-                      className={styles.radioLabel}
-                      htmlFor={radioButton.place}
-                    >
-                      {radioButton.text}
-                    </label>
-                  </Link>
+                    {radioButton.text}
+                  </label>
+                  {/*        </Link> */}
                 </li>
               ))}
             </ul>
